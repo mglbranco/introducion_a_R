@@ -1,1 +1,2035 @@
-Introducion a R
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+<style type="text/css">
+.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+	font-weight: bold;
+	color: #FF0000;
+},
+.warning {
+	font-weight: bold;
+}
+.message {
+	font-style: italic;
+}
+.source, .output, .warning, .error, .message {
+	padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f5f5f5;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+.hl.num {
+  color: #AF0F91;
+}
+.hl.str {
+  color: #317ECC;
+}
+.hl.com {
+  color: #AD95AF;
+  font-style: italic;
+}
+.hl.opt {
+  color: #000000;
+}
+.hl.std {
+  color: #585858;
+}
+.hl.kwa {
+  color: #295F94;
+  font-weight: bold;
+}
+.hl.kwb {
+  color: #B05A65;
+}
+.hl.kwc {
+  color: #55aa55;
+}
+.hl.kwd {
+  color: #BC5A65;
+  font-weight: bold;
+}
+</style>
+<title>Introdución a R (para a estatística)</title>
+</head>
+
+<body>
+
+<h1>Introdución a R (para a estatística)</h1>
+
+<div id="verticalmenu">
+<ul>
+ <li><a href="#">0. Introdución</a></li>
+ <ul>
+    <li><a href="#">Que é R?</a></li>
+    <li><a href="#"></a>Instalación</li>
+    <li><a href="#"></a>As bases de R</li>
+    <li><a href="#"></a>Xestión de paquetes e scripts<</li>
+    <li><a href="#"></a>O espazo de traballo</li>
+ </ul>
+ <li><a href="#">1. A contorna de R</a>
+  <ul>
+    <li><a href="#"></a>1.1 Sintaxe</li>
+    <li><a href="#"></a>1.2 Vectores</li>
+    <li><a href="#"></a>1.3 Matrices e arrays</li>
+    <li><a href="#"></a>1.4 Listas e <i>Data frames</i></li>
+    <li><a href="#"></a>1.5 Factores</li>
+    <li><a href="#"></a>1.6 Obxectos en R</li>
+ </ul>
+ <li><a href="#">2. Xestión de datos</a>
+ <ul>
+ <li><a href="#"></a>Datos de librerías</a></li>
+ <li><a href="#"></a>Importación de datos</a></li>
+ </ul>
+ <li><a href="#">3. Gráficos</a></li>
+ <li><a href="#">4. Análise estatística</a></li>
+ <li><a href="#">Anexo</a></li>
+ <ul>
+  <li><a href="#">Recursos suxeridos</a></li>
+  <li><a href="#">Funcións matematicas</a></li>
+ </ul>
+</ul>
+</div>
+
+<h1>0. Introdución</h1>
+<h2>Que é R?</h2>
+<p><a href="http://cran.r-project.org/"><b>R</b></a> é unha linguaxe de programación con licenza aberta para a estatística computacional e o deseño de gráficos. O seu principal uso está na minería de datos e a análise estatística, como son os campo das ciencias exactas e naturais. <b>R</b> é un <a href="http://gl.wikipedia.org/wiki/Proxecto_GNU">proxecto GNU</a> desenvolto principalmente nas linguaxes de programación <a href="">C</a>, <a href="">Fortran</a> e R e que se libera baixo a licenza libre <b>GNU General Public License</b>.</p</p>
+
+<p>O desenvolvemento de R comenzárono Ross Isaka e Robert Gentleman, da Universidade de Auckland de Nova Zelandia, co obxectivo de solventar problemas, como os de deficiencia no uso de memoria, da linguaxe de programación <a href="http://en.wikipedia.org/wiki/S_%28programming_language%29"><i>S</i></a>. Ademais de basearse en S, recolleron características semánticas de <a href="http://en.wikipedia.org/wiki/Scheme_%28programming_language%29"><i>Scheme</i></a>. Por lles insistir o suízo Martin Mächler, Ihaka e Gentleman liberaron o código de R no ano 1995. Pola facilidade de aprendizaxe e ser software libre, creouse rapidamente unha comunidade arredor da linguaxe. Así é que no 1997 créase o grupo  grupo aberto de desenvolvemento <i>R Development Core Team</i>, o consorcio de desenvolvedores que mantén e promove o uso da linguaxe R, e liberase a última versión alfa da linguaxe. Dende 2013 está dispoñible a versión 3.0 de R.</p> 
+
+<h2>Instalación</h2>
+
+<p><a href="http://www.r-project.org/"><b>R-project.org</b></a> e a páxina web da linguaxe R. Na súa sección de <i>Download</i> están tódalas formas de instalación detalladas.</p>
+
+<h3>Linux</h3>
+<p>En <b>Linux</b> dende o xestor de paquetes de cada distribución, como <i>Synaptic</i> en Ubuntu, <i>Yast</i> en OpenSUSE ou <i>Yum</i> en Fedora, podemos buscar o paquete de R. No caso onde non apareza na busca, debemos engadir o repositorio oportuno; e que está <a href="http://cran.r-project.org/bin/linux/">detallado para cada distribución en CRAN</a>, onde se especifican tódolos repositorios e comandos para executar en cada distribución de Linux. Esencialmente, na liña de comandos a instalación procederá do seguinte xeito:</p>
+<p><ul>
+  <li>en <b>Ubuntu</b>: <code>` sudo apt-get install r-base r-base-dev `</code></li>
+  <li>en <b>openSUSE</b>: <code>` sudo zypper install R-patched R-patched-devel `</code></li>
+  <li>en <b>Fedora</b>: <code>`yum install R `</code></li>
+</ul></p>
+<p>E de xeito semellante para outras distribucións Linux.</p>
+
+<h3>Outros Sistemas Operativos</h3>
+<p>Para os outros casos de sistemas operativos privativos, a CRAN dános as seguintes ligazóns de descarga:</p>
+  <p><ul>
+  <li><a href="http://cran.r-project.org/bin/windows/base/">Microsoft Windows</a></li>
+  <li><a href="http://cran.r-project.org/bin/macosx/">Mac OS</a></li>
+  </ul></p>
+
+<h3>Interfaces gráficas</h3>
+
+<p>R é unha <a href="http://gl.wikipedia.org/wiki/Linguaxe_de_programaci%C3%B3n">linguaxe de programación</a> co que executándoa na súa liña de comandos ou cun editor de textos podemos facer uso dela.</p>
+
+<p>Arestora, para o uso de <b>R</b> temos varias interfaces gráficas (GUI) dispoñibles, que esencialmente son interpretadores das liñas de comandos e que facilitan ver ou mostrar os gráficos e as páxinas de axuda. Sendo <a href="http://gl.wikipedia.org/wiki/Software_libre">software libre</a> o uso de <b>R</b> non está restrinxido ou limitado a ningunha IDE en concreto. É útil a escolla dunha IDE para cando facemos un uso habitual ou con obxecto de desenvolvemento por resaltar a sintaxe de <b>R</b> e polas facilidades de xestión de proxectos que nos facilitan.</p>
+
+<p>Algunhas IDEs de R:
+  <ul>
+    <li><a href="http://www.rstudio.com/"><b>RStudio</b></a>: é un editor específico para R, e arestora cada vez máis empregado.</li> 
+    <li><a href="http://socserv.mcmaster.ca/jfox/Misc/Rcmdr/"><b>R-Commander</b></a></li>
+    <li><a href="http://www.revolutionanalytics.com/products/revolution-r.php.
+"><b>Revolution-R</b></a></li>
+    <li><a href="http://live-analytics.com/"><b>Live-R</b></a></li>
+    <li><b>Emacs + ESS</b></a></li>
+  </ul>
+</p>
+
+
+<h2>As bases de R</h2>
+<h3>A túa primeira aplicación en R!</h3>
+<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">1</span> <span class="hl opt">+</span> <span class="hl num">3</span>  <span class="hl com"># aquí fago un comentario</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 4
+</pre></div>
+</div></div>
+
+
+<p>&nbsp;</p>
+<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># créase un vector v = 1,2,3 &lt;- é o “comando de atrubición”</span>
+<span class="hl std">g</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+<span class="hl com"># pedimos a variable 'g' nos mostre os seus valores</span>
+<span class="hl std">g</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 3 5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># o segundo elemento do vector</span>
+<span class="hl std">g[</span><span class="hl num">2</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 3
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># a resta do segundo elemento menos o primeiro</span>
+<span class="hl std">g[</span><span class="hl num">2</span><span class="hl std">]</span> <span class="hl opt">-</span> <span class="hl std">g[</span><span class="hl num">1</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 2
+</pre></div>
+</div></div>
+
+
+<p>&nbsp;</p>
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># créanse dous vectores w son tódolos número do 1 ó 12</span>
+<span class="hl std">w</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">20</span><span class="hl std">)</span>
+<span class="hl com"># y é un vector de 10 veces 2 e 10 veces 10</span>
+<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">rep</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">),</span> <span class="hl kwd">rep</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">))</span>
+<span class="hl com"># fai un gráfico!</span>
+<span class="hl kwd">plot</span><span class="hl std">(w, y)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-3.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" class="plot" /></div></div>
+
+
+<p>&nbsp;</p>
+<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># crea unha distribución normal con media 2, desviación típica de 5</span>
+<span class="hl std">a</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">50</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+
+<span class="hl com"># marca 3 gráficos en horizontal, 1 liña en horizontal</span>
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">))</span>
+
+<span class="hl com"># debuxamos un boxplot, un histograma e unha función de densidade</span>
+<span class="hl kwd">boxplot</span><span class="hl std">(a)</span>
+<span class="hl kwd">hist</span><span class="hl std">(a)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl com"># volvemos a marcar un só gráfico en horizontal e vertical</span>
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">))</span>
+</pre></div>
+</div></div>
+
+
+<p>&nbsp;</p>
+<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">print</span><span class="hl std">(</span><span class="hl str">&quot;Isto é R!&quot;</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Isto é R!"
+</pre></div>
+</div></div>
+
+
+<h2>Axuda</h2>
+Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podemos facer unha busca da axuda. Se quixeramos saber como se fai un gráfico, fariamos unha busca de <code>plot</code> de calquera destas maneiras:</p>
+
+<p><ul>
+<li><b><code>?'plot'</code></b></li>
+<li><b><code>?"plot"</code></b></li>
+<li><b><code>??plot</code></b></li>
+<li><b><code>??'plot'</code></b></li>
+</ul></p>
+
+<p>Na axuda, cada función de cada librería ten sempre a súa <i>descrición</i>, definidas as súas formas de <i>uso</i>, as <i>variables</i> que necesita e/ou pode empregar e <i>exemplos</i>.</p>
+
+<p>Outra opción para buscar recursos de axuda é chamando directamente a función de axuda con <b><code>help(nome_da_funcion)</code></b>. Como exemplo, para a función <code>sum</code> executaríamos <code>help(sum)</code>.</p>
+
+<p>A listaxe completa de opcións para facer unha busca na axuda é a seguinte:
+<ul><li><code>help("median")</code></li>
+<li><code>help("*")</code></li>
+<li><code>help("if")</code></li>
+<li><code>help.search("plotting")</code></li>
+<li><code>help.search("regression model")</code></li></ul></p>
+
+<p>As funcións como <code>??'plot'</code> e <code>help("plot")</code> só fan buscas nos paquetes que temos intalados. Porén, <code>RSiteSearch("{Linear Model Fits}")</code> busca, usando o navegador web, as palabras clave, viñetas ou tarefas no motor de buscas de <a href="http://search.r-project.org">http://search.r-project.org</a>.</p>
+
+<p>Cando se precisa ver un exemplo de uso dunha función emprégase <code>example(max)</code></b>. Ademais diso, múltiples librerías traen consigo demostracións. Nese caso a función <b><code>demo()</code></b> permítenos ver todas esas mostras da función que hai dispoñíbles. Como exemplo, se podemos ver <code>demo(histogram)</code> e <code>demo(package='mosaic')</code>
+
+<h2>Xestión de paquetes e scripts</h2>
+<p>O núcleo principal de <b>R</b> dispón de moitas funcionalidades, pero moitas funcións están implementadas en paquetes adicionais (librerías). Cando precisemos usalos, primeiro, teremos que facer unha instalación desas <i>librerías</i> e logo unha chamada ao paquete instalado.</p>
+
+<p>Para unha instalación temos que realizar unha chamada a <b><code>install.packages()</code></b>, que será dicir <code>install.packages("opaquetequequero", lib="/a/librería/onde/está/ubicado")</code>. Polo xeral e se non estamos a facer unha chamada a unha librería local, podemos omitir "lib=" e a instalación farase dende a CRAN.</p>
+
+<p>O comando <b><code>library()</code></b> fai unha chamada á librería que temos instalada para que estea 'activado'. <code>require()</code> é semellante a <code>library()</code>, xa que fai unha chamada á librería, mais está orientado a implementalo en funcións (ó programar) xa que informa dos erros mais non detén os procesos da función.</p>
+
+<p>Se preciráramos a librería 'ggplot2', un gran recurso para gráficos, primeiro, fariamos a súa instalación con <b><code>install.packages("ggplot2")</code></b>, unha vez instalada, activámola con <b><code>libary(ggplot2)</code></b>. Se elaborásemos unha nova función que use ggplot2, empregariamos preferiblemente <code>require(ggplot2)</code>.</p>
+
+<p>Nuns <b>script</b> pódemos ter codificados e alamacenados moitas das nosas funcións ou o procesamento de datos que empregamos. Para importar un script só temos que indicar a fonte onde se atopa: <code>source("/o/meu/scrip.R")</code>. Para ver o script, faise unha chamada deste xeito: <code>script.R</code>.</p>
+
+<p>A maiores, outras pezas que complementan a funcionalidade de R e que son interesantes é <b><code>install.RStudio()</code></b>, que instala directamente RStudio dende R, <code>install.Rtools()</code>, de obrigado uso para o desenvolvemento de paquetes en R. <b><code>install.git()</code></b>, que complementa control de versións en <i><a href="http://git-scm.com/">'git'</a></i>. En R mesmo podemos realizar a instalación dun paquete den desenvolvemento en <a href="">'github'</a> deste xeito: <code>install.packages("devtools")</code>, </code>library(devtools)</code>, </code>dev_mode(on=T)</code>, </code>install_github("ggplot2")</code>, <code>dev_mode(on=F)</code>.</p>
+
+<h2>O espazo de traballo</h2>
+<p>En R podemos definir o espazo no que imos a estar traballando, e con iso aforraremos en calquera uso de subdirectorios especificar a ruta completa. Defínese a raíz indicando: <code>setwd("/home/eu/o/meu/cartafol")</code>.</p>
+
+<p>No momento en que se queira saber en cal cartafol estamos, só precisamos indicar <code>getwd()</code>, que nos dá a dirección completa do cartafol raíz.</p>
+
+<p>A función <code>list.files()</code> permítenos ver todo o listado de ficheiros que hai dentro do cartafol de traballo que se lle especificou a <code>setwd()</code>. 
+
+<p><b>Tarefa</b>: Crea un cartafol de traballo e defíneo como tal. Crea dende RStudio un script en branco e dálle o nome que queiras. Descarga os datos cos que traballaremos e gárdaos nese cartafol. Unha vez teñas iso, obtén a listaxe de ficheiros que alí hai.</p>
+
+<h1>1. A contorna de R</h1>
+<h2>Sintaxe</h2>
+<h3>Expresións</h3>
+
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">2</span> <span class="hl opt">+</span> <span class="hl num">2</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 4
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">2</span><span class="hl opt">/</span><span class="hl num">9</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.2222
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">3</span><span class="hl opt">:</span><span class="hl num">13</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1]  3  4  5  6  7  8  9 10 11 12 13
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-9"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">6</span> <span class="hl opt">-</span> <span class="hl num">9</span><span class="hl opt">:</span><span class="hl num">13</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] -7 -7 -7 -7 -7
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-10"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl str">&quot;Eu uso R!&quot;</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Eu uso R!"
+</pre></div>
+</div></div>
+
+
+<p><b>Tarefa</b>: busca <code>"Arithmetic"</code>, <code>"sqrt"</code> e <code>"special"</code>, ollea as axudas e proba na consola algunhas das opcións desas funcións.</p>
+
+<h3>Asignación de variables</h3>
+<p>Unha varíable asígnase usando <b>"&lt;-"</b> ou <b>=</b>. Por motivos históricos, en R prefírese o uso de "&lt;-".</p>
+<div class="chunk" id="unnamed-chunk-11"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl num">18</span>
+<span class="hl std">x</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 18
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">y</span> <span class="hl kwb">=</span> <span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">10</span>
+<span class="hl std">y</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  2  3  4  5  6  7  8  9 10
+</pre></div>
+</div></div>
+
+
+<p>Esa asignación tanto pode ir nun sentido como noutro. <code>print()</code></p>
+<div class="chunk" id="unnamed-chunk-12"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl num">9</span>
+<span class="hl kwd">print</span><span class="hl std">(y)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 9
+</pre></div>
+</div></div>
+
+
+<p>Ademais de valores numéricos, unha variable pode levar asociados valores lóxicos ou de caracteres.</p>
+<div class="chunk" id="unnamed-chunk-13"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl str">&quot;trasnada&quot;</span>
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-14"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl num">TRUE</span>
+</pre></div>
+</div></div>
+
+
+<h3>Operadores matemáticos</h3>
+<p>Sobre das variables podemos aplicar calculos e multitude de funcións xa implementadas. Primeiro hai que ter en conta como se concatenan os cálculos, xa que en <b>R</b> os cálculos aplícanse en cada elemento dun vector sen necesidade de aplicar un loop.</p>
+
+<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># sumas</span>
+<span class="hl num">3</span> <span class="hl opt">+</span> <span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 4
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">5</span> <span class="hl opt">+</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">10</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1]  2  4  6  8 10  7  9 11 13 15
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span> <span class="hl opt">+</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  3  7 11
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-16"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># resta</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">14</span><span class="hl std">)</span> <span class="hl opt">-</span> <span class="hl num">3</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  7  9 11
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># multiplicación</span>
+<span class="hl opt">-</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">3</span> <span class="hl opt">*</span> <span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">6</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] -2  0  4 10 18
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># división</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl std">pi)</span><span class="hl opt">/</span><span class="hl std">pi</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.3183 0.6366 0.9549
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># expoñentes, ^ e ** son o mesmo</span>
+<span class="hl kwd">identical</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl opt">^</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">2</span> <span class="hl opt">*</span> <span class="hl num">4</span><span class="hl opt">^</span><span class="hl num">2</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># división, só enteiros</span>
+<span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">12</span><span class="hl opt">%/%</span><span class="hl num">3</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] 0 0 1 1 1 2 2 2 3 3 3 4
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># restante das divisións</span>
+<span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">12</span><span class="hl opt">%%</span><span class="hl num">3</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] 1 2 0 1 2 0 1 2 0 1 2 0
+</pre></div>
+</div></div>
+
+
+<p>No anexo temos listado as principais función matemáticas de R. Aquí veremos exemplos dalgunhas das habituais, como as trigonométricas. Como se viu xa, non se traballa valor por valor senón en forma vectorial.</p>
+
+<div class="chunk" id="unnamed-chunk-17"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># exponenciais</span>
+<span class="hl kwd">exp</span><span class="hl std">(pi</span> <span class="hl opt">+</span> <span class="hl num">1</span><span class="hl std">)</span> <span class="hl opt">+</span> <span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 63.9
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># logaritmos, a base natural é a usada en log()</span>
+<span class="hl kwd">log</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 4.605
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">log</span><span class="hl std">(</span><span class="hl kwd">exp</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 2
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">log2</span><span class="hl std">(</span><span class="hl num">128</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 7
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># funcións trigonométricas</span>
+<span class="hl kwd">sin</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">, pi</span><span class="hl opt">/</span><span class="hl num">2</span><span class="hl std">, pi))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.000e+00 1.000e+00 1.225e-16
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># factoriais</span>
+<span class="hl kwd">factorial</span><span class="hl std">(</span><span class="hl num">9</span><span class="hl std">)</span> <span class="hl opt">-</span> <span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 362879
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-18"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># outras funcións</span>
+<span class="hl kwd">rep</span><span class="hl std">(</span><span class="hl str">&quot;Xo!&quot;</span><span class="hl std">,</span> <span class="hl kwc">times</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Xo!" "Xo!" "Xo!" "Xo!" "Xo!"
+</pre></div>
+</div></div>
+
+
+<h3>Valores lóxicos</h3>
+<p>Moitas veces, como para a comparanza de valores enteiros, imos precisar de facer uso de valores lóxicos. Para iso emprégase:</p>
+<p><table style="width:300px">
+<tr>
+  <td>==</td>
+  <td>igual a</td>
+</tr>
+<tr>
+  <td>!=</td>
+  <td>diferente de</td>
+</tr>
+<tr>
+  <td>&lt;</td>
+  <td>menor ca</td>
+</tr>
+<tr>
+  <td>&lt;=</td>
+  <td>menor ou igual ca</td>
+</tr>
+</table></p>
+
+<div class="chunk" id="unnamed-chunk-19"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">10</span> <span class="hl opt">&gt;</span> <span class="hl num">5</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-20"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">5</span> <span class="hl opt">==</span> <span class="hl num">6</span> <span class="hl opt">-</span> <span class="hl num">2</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-21"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">F</span> <span class="hl opt">==</span> <span class="hl num">FALSE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-22"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">identical</span><span class="hl std">(</span><span class="hl num">3</span> <span class="hl opt">*</span> <span class="hl kwd">log</span><span class="hl std">(</span><span class="hl num">6</span><span class="hl std">),</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-23"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># igual a...?</span>
+<span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span> <span class="hl opt">-</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">)</span> <span class="hl opt">==</span> <span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  TRUE  TRUE FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># diferente de...?</span>
+<span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">10</span> <span class="hl opt">!=</span> <span class="hl num">10</span><span class="hl opt">:</span><span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># menor ca...?</span>
+<span class="hl kwd">log</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl opt">:</span><span class="hl std">pi</span><span class="hl opt">^</span><span class="hl num">2</span><span class="hl std">)</span><span class="hl opt">^</span><span class="hl std">pi</span> <span class="hl opt">&gt;=</span> <span class="hl std">pi</span><span class="hl opt">^</span><span class="hl num">3</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+</pre></div>
+</div></div>
+
+
+<h3>Números especiais</h3>
+<p><b>R</b> acepta valores numericos particulares: <code>-Inf</code>, <code>Inf</code>, <code>NA</code> e <code>NaN</code>. Os valores infinitos non necesitan demasiada presentación, mais si os seguintes.</p>
+
+<p><b>NaN</b> é unha abreviatura de "not-a-number" e indica que ou ben un cálculo ou non ten sentido matemático ouu non se puido realizar correctamente. <b>NA</b>, pola outra banda, indica que ese valor non está dispoñible ("not-available"); é un valor que falta.</p>
+
+<div class="chunk" id="unnamed-chunk-24"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl num">Inf</span> <span class="hl opt">+</span> <span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] Inf
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">/</span><span class="hl num">Inf</span><span class="hl std">,</span> <span class="hl num">Inf</span><span class="hl opt">/</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">Inf</span><span class="hl opt">/</span><span class="hl num">Inf</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]   0 Inf NaN
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">NA</span> <span class="hl opt">+</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">NA</span> <span class="hl opt">*</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">NA</span> <span class="hl opt">+</span> <span class="hl num">Inf</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] NA NA NA
+</pre></div>
+</div></div>
+
+
+
+<h2>1.2 Vectores</h2>
+
+<p>Un vector é unha cadea de números ou caracteres, isto é, secuencias numéricas ou lóxicas. Con iso, a un vector podémoslle asignar as medidas dunha única variable. Os vectores permítenos realizar as mesmas operacións matemáticas a ese vector cun só comando.</p>
+
+<p>Hai varios xeitos de crear vectores. Para os vectores numéricos, <code>:</code> crean secuencias dun número a outro. 
+
+<div class="chunk" id="unnamed-chunk-25"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl opt">-</span><span class="hl num">20</span><span class="hl opt">:</span><span class="hl num">10</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] -20 -19 -18 -17 -16 -15 -14 -13 -12 -11 -10  -9  -8  -7  -6  -5  -4
+## [18]  -3  -2  -1   0   1   2   3   4   5   6   7   8   9  10
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl num">1.2</span><span class="hl opt">:</span><span class="hl num">9.2</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1.2 2.2 3.2 4.2 5.2 6.2 7.2 8.2 9.2
+</pre></div>
+</div></div>
+
+
+<p><code>c()</code> concatena valores:</p>
+<div class="chunk" id="unnamed-chunk-26"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">7</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">11</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  1  3  5  7  9 11
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">),</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 2 3 3 2 1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  2  4  5  6  7  8  9 10
+</pre></div>
+</div></div>
+
+
+<p>Como vimos, <b>"&lt;-"</b> permite almacenar valores nun vector. Con iso, os vectores pódense concaternar con outros vectores:</p>
+<div class="chunk" id="unnamed-chunk-27"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Créanse vectores, asignándolle valores</span>
+<span class="hl std">u</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl opt">:</span><span class="hl num">7</span><span class="hl std">)</span>
+<span class="hl std">v</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">rep</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">))</span>
+<span class="hl com"># Concaténanse</span>
+<span class="hl std">(w</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(u, v))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 5 6 7 1 1 1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># só os elementos da primeira e terceira posición</span>
+<span class="hl std">w[</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 5 7
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># todo agás o segundo e cuarto elemento o signo '-' denota que se retiran</span>
+<span class="hl std">w[</span><span class="hl opt">-</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 5 7 1 1
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-28"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># &lt;- e = cumpren a mesma función</span>
+<span class="hl std">i</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl std">i</span> <span class="hl kwb">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+</pre></div>
+</div></div>
+
+
+<p>Ademais de numéricos, os vectores poden ser de caracteres ou lóxicos. Os operadores para vectores lóxicos son:</p>
+<p><table style="width:300px">
+<tr>
+  <td>!</td>
+  <td>non</td>
+</tr>
+<tr>
+  <td>&</td>
+  <td>e</td>
+</tr>
+<tr>
+  <td>!</td>
+  <td>non</td>
+</tr>
+<tr>
+  <td>|</td>
+  <td>ou</td>
+</tr>
+</table></p>
+
+<div class="chunk" id="unnamed-chunk-29"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">p</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Rosalia&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Darwin&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Einstein&quot;</span><span class="hl std">)</span>
+<span class="hl std">q</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">NA</span><span class="hl std">)</span>
+<span class="hl kwd">str</span><span class="hl std">(q)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  logi [1:3] TRUE FALSE NA
+</pre></div>
+</div></div>
+
+
+<p>A función <code>vector</code> crea vectores dun tipo e tamaño determinado. Cada un deses valores levará asignado un cero, un 'FALSE' ou unha cadea en branco; isto é, o equivalente a nada.</p>
+
+<div class="chunk" id="unnamed-chunk-30"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">vector</span><span class="hl std">(</span><span class="hl str">&quot;numeric&quot;</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0 0 0 0 0
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">vector</span><span class="hl std">(</span><span class="hl str">&quot;complex&quot;</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0+0i 0+0i 0+0i 0+0i 0+0i
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">vector</span><span class="hl std">(</span><span class="hl str">&quot;logical&quot;</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE FALSE FALSE FALSE FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">vector</span><span class="hl std">(</span><span class="hl str">&quot;character&quot;</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "" "" "" "" ""
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">vector</span><span class="hl std">(</span><span class="hl str">&quot;list&quot;</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL
+</pre></div>
+</div></div>
+
+
+<p>ou feito doutro xeito:</p>
+<div class="chunk" id="unnamed-chunk-31"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">numeric</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0 0 0 0 0
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">complex</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0+0i 0+0i 0+0i 0+0i 0+0i
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">logical</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE FALSE FALSE FALSE FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">character</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "" "" "" "" ""
+</pre></div>
+</div></div>
+
+
+<h3>Secuencias</h3>
+<p>Non só co <code>:</code> podemos crear secuencias de valores. Función como <code>seq()</code> permiten crear secúencias de diferentes xeitos. <code>seq.int()</code> crea secuencias dun número a outro, ao igual que <code>:</code> o fai, mais podendo especificar a diferenza entre un valor e outro.</p>
+
+<div class="chunk" id="unnamed-chunk-32"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">18</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 12 13 14 15 16 17 18
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">seq.int</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  3  7 11
+</pre></div>
+</div></div>
+
+
+<p>Con <code>seq_len()</code> defínense secuencias de 1 ata o valor de entrada.</p>
+<div class="chunk" id="unnamed-chunk-33"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">seq_len</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1]  1  2  3  4  5  6  7  8  9 10
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">d</span> <span class="hl kwb">&lt;-</span> <span class="hl std">pi</span>
+<span class="hl kwd">seq_len</span><span class="hl std">(d)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 2 3
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-34"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">seq.int</span><span class="hl std">(</span><span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">18</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 12 13 14 15 16 17 18
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">seq.int</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  3  7 11
+</pre></div>
+</div></div>
+
+
+<h3>Longura</h3>
+<p>Tódolos vectores teñen unha lonxitude, e iso dinos o número de elementos que teñen. Os valores de lonxitude dun vector serán sempre positivos e os valores NA e NaN incluiranse no seu valor.</p>
+
+<div class="chunk" id="unnamed-chunk-35"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">length</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">9</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 9
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">length</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">NA</span><span class="hl std">))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 4
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">a</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;a&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;z&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;m&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">length</span><span class="hl std">(a)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 3
+</pre></div>
+</div></div>
+
+
+<h3>Asignación de nomes</h3>
+<div class="chunk" id="unnamed-chunk-36"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwc">comarcas</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl kwc">poboacion</span> <span class="hl std">=</span> <span class="hl num">10000</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  comarcas poboacion 
+##         3     10000
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">comarcas</span> <span class="hl kwb">&lt;-</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">4</span>
+<span class="hl kwd">names</span><span class="hl std">(comarcas)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Ordes&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;As Mariñas&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Bergantiños&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Terra de Trives&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">names</span><span class="hl std">(comarcas)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Ordes"           "As Mariñas"      "Bergantiños"     "Terra de Trives"
+</pre></div>
+</div></div>
+
+
+<h3>Uso dos vectores</h3>
+<p>Os cálculos en R, digamos, están 'vectorizados'. Cando se aplica o <code>log(i)</code> créase un vector cos logaritmos naturais dos elementos de <code>i</code>. Se <code>p</code> e <code>q</code> son vectores da mesma lonxitude, <code>p + q</code> é un vector cos elementos iguais á suma de cada elemento de p e q por orde. Mais, se q é un escalar, súmaselle a cada elemento de p. E se un dos vectores é máis pequeno ca outro, o máis curto reciclarase, engadíndollo ao máis grande tantas veces coma fora preciso.
+</p>
+
+<p>A cantidade de elementos dun vector obtémolos en función da súa longura usando <code>length(i)</code>. Cada elemento dun vector pódese obter con subíndices dentro de <code>[ ]</code>, co que con <code>i[1]</code> obtemos o primeiro elemento, con <code>i[2]</code> o segundo e <code>x[length(x)]</code> o último de todos.</p>
+
+<p>Os subíndices poden ser tamén un vector por si mesmos, co que, por exemplo, <code>i[1:5]</code> son os primeiros cinco elementos do vector i. Doutro xeito, un subíndice negativo exclúe o correspondete elemento con ese índice, co que <code>i[-1]</code> devolve o vector con tódolos elementos de i agás o primeiro.</p>
+
+<p>Un subíndice pode ser expresión lóxicas. Nese caso obtemos sempre os elementos que sexan verdadeiros para esa expresión. Con iso, podemos obter valores "i nos que i sexa maior ca 5".</p>
+
+<div class="chunk" id="unnamed-chunk-37"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">7</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl std">x[x</span> <span class="hl opt">&lt;</span> <span class="hl num">5</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 1 4
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl opt">&lt;</span> <span class="hl num">5</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE
+</pre></div>
+</div></div>
+
+
+<p>Ademais de numéricos, os vectores poden ser lóxicos. Neste caso, os operadores lóxicos "para", <code>|</code>, e "e", <code>&</code> funcionan para cada elemento do vector do mesmo xeito. No caso de R, o operador dobre <code>||</code>, "ou", e <code>&&</code>, "e", serven só para a comparanza do primeiro elemento do vector.</p>
+
+<div class="chunk" id="unnamed-chunk-38"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">p</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+<span class="hl std">q</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+<span class="hl std">p</span> <span class="hl opt">&amp;</span> <span class="hl std">q</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  TRUE FALSE FALSE FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">p</span> <span class="hl opt">&amp;&amp;</span> <span class="hl std">q</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+</div></div>
+
+
+<p>Varias funcións permítennos saber as características dun vector, obter os seus índices ou comparalos:</p>
+<div class="chunk" id="unnamed-chunk-39"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">z</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl opt">-</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">7</span><span class="hl std">,</span> <span class="hl num">71</span><span class="hl std">,</span> <span class="hl num">83</span><span class="hl std">)</span>
+<span class="hl std">z</span> <span class="hl opt">&lt;=</span> <span class="hl num">3</span>  <span class="hl com"># FALSE  TRUE FALSE FALSE FALSE (para cada elemento de z)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE  TRUE FALSE FALSE FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl opt">!</span><span class="hl std">(z</span> <span class="hl opt">&lt;</span> <span class="hl num">3</span><span class="hl std">)</span>  <span class="hl com"># TRUE FALSE  TRUE  TRUE  TRUE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  TRUE FALSE  TRUE  TRUE  TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">z[z</span> <span class="hl opt">!=</span> <span class="hl num">3</span><span class="hl std">]</span>  <span class="hl com"># 5 -1  7 71 83, os elementos de z para os que se cumpre esa condición (é TRUE)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1]  5 -1  7 71 83
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">which</span><span class="hl std">(z</span> <span class="hl opt">&gt;=</span> <span class="hl num">4</span><span class="hl std">)</span>  <span class="hl com"># 4 5, os índices dos elementos para os cales z cumpre esa condición</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 3 4 5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">is.vector</span><span class="hl std">(z)</span>  <span class="hl com"># TRUE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">is.character</span><span class="hl std">(z)</span>  <span class="hl com"># FALSE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">is.numeric</span><span class="hl std">(z)</span>  <span class="hl com"># TRUE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">is.na</span><span class="hl std">(z)</span>  <span class="hl com"># FALSE FALSE FALSE FALSE FALSE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE FALSE FALSE FALSE FALSE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">any</span><span class="hl std">(z</span> <span class="hl opt">&lt;</span> <span class="hl num">0</span><span class="hl std">)</span>  <span class="hl com"># TRUE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">all</span><span class="hl std">(z</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span><span class="hl std">)</span>  <span class="hl com"># FALSE</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] FALSE
+</pre></div>
+</div></div>
+
+
+<p><b>Tarefa</b>: .</p>
+
+<h2>1.3 Matrices e arrays</h2>
+<p>As variables vectores son obxectos unidimensionais: só teñen unha longura e ningunha outra dimensión. En cambios, os <i>arrays</i> e as matrices son multidimensionais. Un array contén datos multidimensionais rectangulares, isto é, cada fila ou cada columna é da mesma longura cás outras. As matrices son un caso particular de arrays bidimensionais.</p> 
+
+<p>Para crear un array chámase á función <code>array</code> sobre dun vector de valores e especificando as dimensións. A cada dimensión pódeselle asignar un nome.</p>
+
+<div class="chunk" id="unnamed-chunk-40"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">arrayN</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">array</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">24</span><span class="hl std">,</span> <span class="hl kwc">dim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">),</span> <span class="hl kwc">dimnames</span> <span class="hl std">=</span> <span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;un&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;dous&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;tres&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;catro&quot;</span><span class="hl std">),</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;a&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;b&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;c&quot;</span><span class="hl std">),</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;alpha&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;beta&quot;</span><span class="hl std">)))</span>
+</pre></div>
+</div></div>
+
+
+<p>Coas matrices non precisamos indicar un argumento <code>dim</code>, mais si de especificarmos o número de filas e columnas que a matriz ha de ter.</p>
+
+<div class="chunk" id="unnamed-chunk-41"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">matrizN</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">12</span><span class="hl std">,</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwc">dimnames</span> <span class="hl std">=</span> <span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;un&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;dous&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;tres&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;catro&quot;</span><span class="hl std">),</span>
+    <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;alpha&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;beta&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;gamma&quot;</span><span class="hl std">)))</span>
+</pre></div>
+</div></div>
+
+
+<p>Aparte disto, temos outros xeitos de crear matrices. Como se viu, unha matriz é un vector que sempre ten un atributo de dimensións (<code>dim</code>) igual a 2, que son o número de columnas e filas. A función <code>matrix</code> é a que crea unha matrix. A opción <code>byrow</code>  é a que indica se os valores de datos que se lle asignan á matriz son columnas sucesivas (o predefinido) ou por filas (<code>byrow=TRUE</code>). A opción <code>dimnames</code> asígnalle nomes ás columnas e filas.</p>
+
+<div class="chunk" id="unnamed-chunk-42"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]    5    5
+## [2,]    5    5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">byrow</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">byrow</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+</pre></div>
+</div></div>
+
+
+<p>Outro xeito de crear matrices é darlles a un vector os valores ao atributo de dimensións <code>dim</code>, que de primeiras para un vector é nulo.</p>
+<div class="chunk" id="unnamed-chunk-43"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">i</span> <span class="hl kwb">&lt;-</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">12</span>
+<span class="hl std">i</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1]  1  2  3  4  5  6  7  8  9 10 11 12
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">dim</span><span class="hl std">(i)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## NULL
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">dim</span><span class="hl std">(i)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">)</span>
+<span class="hl std">i</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+</pre></div>
+</div></div>
+
+
+<p>A función <code>dim</code>, tanto para matrices como arrays, ofrece as dimensións da variable. Mesmo podemos cambiarlle a unha matrix ou a un array as súas dimensións grazas a <code>dim</code>. 
+
+<div class="chunk" id="unnamed-chunk-44"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">m1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl std">,</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">)</span>
+<span class="hl std">m1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">dim</span><span class="hl std">(m1)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">)</span>
+<span class="hl std">m1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
+</pre></div>
+</div></div>
+
+
+<p>As filas e columnas das matrices poden ter nomes asignados. <code>rownames</code>, <code>colnames</code> son os elemtos que nos permiten obtelos ou modificalos.</p>
+<div class="chunk" id="unnamed-chunk-45"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">rownames</span><span class="hl std">(matrizN)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "un"    "dous"  "tres"  "catro"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">colnames</span><span class="hl std">(matrizN)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "alpha" "beta"  "gamma"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">dimnames</span><span class="hl std">(matrizN)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [[1]]
+## [1] "un"    "dous"  "tres"  "catro"
+## 
+## [[2]]
+## [1] "alpha" "beta"  "gamma"
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-46"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">colnames</span><span class="hl std">(matrizN)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;delta&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;epsilon&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;zeta&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">colnames</span><span class="hl std">(matrizN)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "delta"   "epsilon" "zeta"
+</pre></div>
+</div></div>
+
+
+<p>O indexado nas matrices e arrays funciona de igual xeito ca cos vectores, só que precisamos indicar todas as dimensións. Grazas ao indexado podemos un subset de datos e crear novas matrices.</p>
+
+<div class="chunk" id="unnamed-chunk-47"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># primeira fila</span>
+<span class="hl std">matrizN[</span><span class="hl num">1</span><span class="hl std">, ]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   delta epsilon    zeta 
+##       1       5       9
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">matrizN[</span><span class="hl str">&quot;un&quot;</span><span class="hl std">, ]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   delta epsilon    zeta 
+##       1       5       9
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># segunda fila e segunda e terceira columna</span>
+<span class="hl std">matrizN[</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;delta&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;epsilon&quot;</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   delta epsilon 
+##       2       6
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># da segunda á cuarta fila, primeira e segunda columna</span>
+<span class="hl std">matrizN[</span><span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;delta&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;zeta&quot;</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##       delta zeta
+## dous      2   10
+## tres      3   11
+## catro     4   12
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># con ese subset creamos unha nova matriz</span>
+<span class="hl std">matrizM</span> <span class="hl kwb">&lt;-</span> <span class="hl std">matrizN[</span><span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;delta&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;zeta&quot;</span><span class="hl std">)]</span>
+<span class="hl kwd">dim</span><span class="hl std">(matrizN)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 4 3
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">dim</span><span class="hl std">(matrizM)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 3 2
+</pre></div>
+</div></div>
+
+
+<p>Así como podemos realizar subsets de matrices (definido columnas e filas a escoller), podemos xunguir matrices. <code>rbind</code> e <code>cbind</code> permítennos xunguir matrices segundo as súas filas ou segundo as súas columnas.</p>
+
+<div class="chunk" id="unnamed-chunk-48"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">m2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">seq.int</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">24</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">4</span><span class="hl std">)</span>
+<span class="hl std">m3</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">9</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">)</span>
+<span class="hl com"># por filas</span>
+<span class="hl kwd">rbind</span><span class="hl std">(m2, m3)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3]
+## [1,]    2   10   18
+## [2,]    4   12   20
+## [3,]    6   14   22
+## [4,]    8   16   24
+## [5,]    1    4    7
+## [6,]    2    5    8
+## [7,]    3    6    9
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># por columnas</span>
+<span class="hl kwd">cbind</span><span class="hl std">(m2[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">3</span><span class="hl std">, ], m3)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    2   10   18    1    4    7
+## [2,]    4   12   20    2    5    8
+## [3,]    6   14   22    3    6    9
+</pre></div>
+</div></div>
+
+
+<p>Os operadores aritméticos habituais (+, -, \*, /) traballan sobre dunha matriz e arrays tal e como o fan en vectores. Sempre que se apliquen cálculos aritméticos en matrices e arrays estes teñen que ser do tamaño axeitado. Por exemplo, cando se aplica unha multiplicación os números de filas da primeira matriz teñen que ser as mesmas ca o número de columnas da segunda matriz.</p>
+
+<p>Unha suma dun vector a un array ou matrix supón que o vector se reciclará tantas veces como se precise, máis a dimensión final resultante é a do array ou matriz.</p>
+
+<div class="chunk" id="unnamed-chunk-49"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">m4</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">6</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">)</span>
+<span class="hl std">m5</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwc">data</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">ncol</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">)</span>
+<span class="hl std">m4</span> <span class="hl opt">+</span> <span class="hl std">m5</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]    3    6
+## [2,]    4    7
+## [3,]    5    8
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">m4</span><span class="hl opt">/</span><span class="hl std">m5</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]  0.5  2.0
+## [2,]  1.0  2.5
+## [3,]  1.5  3.0
+</pre></div>
+</div></div>
+
+
+<p>A función <code>t()</code> realiza unha transposición dunha matriz. A transposición non é aplicable a arrays de maiores dimensións ca unha matriz.</p>
+<div class="chunk" id="unnamed-chunk-50"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">m4</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">t</span><span class="hl std">(m4)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+</pre></div>
+</div></div>
+
+
+<p>O operando <code>^</code> traballa elemento por elemento</p>
+<div class="chunk" id="unnamed-chunk-51"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">m6</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl opt">-</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">)</span>
+<span class="hl std">m6</span><span class="hl opt">^</span><span class="hl num">2</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1] [,2] [,3]
+## [1,]   16    9    4
+## [2,]    0    9   25
+## [3,]   16    1   81
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># irracional</span>
+<span class="hl std">m6</span><span class="hl opt">^-</span><span class="hl num">1</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##      [,1]    [,2]   [,3]
+## [1,] 0.25  0.3333 0.5000
+## [2,]  Inf -0.3333 0.2000
+## [3,] 0.25  1.0000 0.1111
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># para iso aplícase solve()</span>
+<span class="hl std">(im6</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">solve</span><span class="hl std">(m6))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##         [,1]    [,2]    [,3]
+## [1,]  0.7273  0.5682 -0.4773
+## [2,] -0.4545 -0.6364  0.4545
+## [3,] -0.2727 -0.1818  0.2727
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># </span>
+<span class="hl std">m6</span> <span class="hl opt">%*%</span> <span class="hl std">im6</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##           [,1]      [,2] [,3]
+## [1,] 1.000e+00 1.665e-16    0
+## [2,] 0.000e+00 1.000e+00    0
+## [3,] 4.441e-16 4.441e-16    1
+</pre></div>
+</div></div>
+
+
+<p><b>Tarefa</b>: .</p>
+
+<h2>1.4 Listas e <i>Data frames</i></h2>
+<p>Os vectores, as matrices e os arrays conteñen sempre elementos que son do mesmo tipo. Pola contra, as listas e das data frames son dous tipos de obxectos que permiten combinar diferentes tipos de datos nunha úniva variable.</p>
+
+<h3>Listas</h3>
+<p>As listas son elementos semellantes a un vector onde cada un deses elementos pode ser de diferente tipo.</p>
+<p>A función <code>list()</code> é a que crea as listas e coa que se pode especificar o contido destas, dun xeito similar a <code>c()</code>. Os elementos dunha lista poden ser variables de calquera tipo: dende vectores, a matrices ou incluso funcións.</p>
+
+<div class="chunk" id="unnamed-chunk-52"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">list.sp</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Asteromphalus&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Cerataulina&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Rhizosolenia&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Gyrodinium&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Phalacroma&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Prorocentrum&quot;</span><span class="hl std">),</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">),</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span>
+    <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">))</span>
+</pre></div>
+</div></div>
+
+<p>Unha vez creada, pódense definir os nomes de cada elemento da lista.</p>
+
+<div class="chunk" id="unnamed-chunk-53"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">names</span><span class="hl std">(list.sp)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;specie&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;abundance&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;presence&quot;</span><span class="hl std">)</span>
+<span class="hl std">list.sp</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $specie
+## [1] "Asteromphalus" "Cerataulina"   "Rhizosolenia"  "Gyrodinium"   
+## [5] "Phalacroma"    "Prorocentrum" 
+## 
+## $abundance
+## [1] 21 12  9  5  1  1
+## 
+## $presence
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    0    0    1    1    1
+## [2,]    1    1    0    0    0    1
+## [3,]    1    0    1    0    1    1
+</pre></div>
+</div></div>
+
+
+<p>No canto de asignar os nomes despois de crear a lista, pódense defir xa ó creala.</p>
+<div class="chunk" id="unnamed-chunk-54"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">list.sp</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">list</span><span class="hl std">(</span><span class="hl kwc">species</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Asteromphalus&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Cerataulina&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Rhizosolenia&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Gyrodinium&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Phalacroma&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Prorocentrum&quot;</span><span class="hl std">),</span> <span class="hl kwc">abundance</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">5</span><span class="hl std">,</span>
+    <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">),</span> <span class="hl kwc">presence</span> <span class="hl std">=</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span>
+    <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">))</span>
+</pre></div>
+</div></div>
+
+
+<p>Porén, como unha lista pode conter datos de diferentes tipos, o xeito de traballar con elas é diferente a vectores.</p>
+
+<div class="chunk" id="unnamed-chunk-55"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">dim</span><span class="hl std">(list.sp)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## NULL
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">ncol</span><span class="hl std">(list.sp)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## NULL
+</pre></div>
+</div></div>
+
+
+<p>O indexado nas listas funciona deste xeito:</p>
+<div class="chunk" id="unnamed-chunk-56"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># obtemos os dous primeiros elementos da lista</span>
+<span class="hl std">list.sp[</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">2</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $species
+## [1] "Asteromphalus" "Cerataulina"   "Rhizosolenia"  "Gyrodinium"   
+## [5] "Phalacroma"    "Prorocentrum" 
+## 
+## $abundance
+## [1] 21 12  9  5  1  1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># retiramos o primeiro elemento da lista</span>
+<span class="hl std">list.sp[</span><span class="hl opt">-</span><span class="hl num">1</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $abundance
+## [1] 21 12  9  5  1  1
+## 
+## $presence
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    0    0    1    1    1
+## [2,]    1    1    0    0    0    1
+## [3,]    1    0    1    0    1    1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># obtemos o primeiro e terceiro</span>
+<span class="hl std">list.sp[</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;specie&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;presence&quot;</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $<NA>
+## NULL
+## 
+## $presence
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    0    0    1    1    1
+## [2,]    1    1    0    0    0    1
+## [3,]    1    0    1    0    1    1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">list.sp[</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $species
+## [1] "Asteromphalus" "Cerataulina"   "Rhizosolenia"  "Gyrodinium"   
+## [5] "Phalacroma"    "Prorocentrum" 
+## 
+## $presence
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    0    0    1    1    1
+## [2,]    1    1    0    0    0    1
+## [3,]    1    0    1    0    1    1
+</pre></div>
+</div></div>
+
+
+<p>Feito deses xeitos realmente obtemos outras listas. Pero para acceder aos contidos da lista os operadores que se empregan son <code>[[ ]]</code>.</p>
+
+<div class="chunk" id="unnamed-chunk-57"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">list.sp[[</span><span class="hl num">2</span><span class="hl std">]]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 21 12  9  5  1  1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">list.sp[[</span><span class="hl str">&quot;abundance&quot;</span><span class="hl std">]]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 21 12  9  5  1  1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">list.sp</span><span class="hl opt">$</span><span class="hl std">abundance</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 21 12  9  5  1  1
+</pre></div>
+</div></div>
+
+
+<p>Para acceder a un valor dun elemento empréganse os <code>[[ ]]</code> e <code>[]</code>.</p>
+
+<div class="chunk" id="unnamed-chunk-58"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">list.sp[[</span><span class="hl str">&quot;species&quot;</span><span class="hl std">]][</span><span class="hl num">3</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Rhizosolenia"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">list.sp[[</span><span class="hl str">&quot;abundance&quot;</span><span class="hl std">]][</span><span class="hl num">3</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 9
+</pre></div>
+</div></div>
+
+
+<p>Sempre se pode extraer dunha lista valores e gardalos nun vector.</p>
+<div class="chunk" id="unnamed-chunk-59"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">abundancia</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.numeric</span><span class="hl std">(list.sp[[</span><span class="hl num">2</span><span class="hl std">]])</span>
+<span class="hl kwd">is.vector</span><span class="hl std">(abundancia)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+</div></div>
+
+
+<h3><i>Data frames</i></h3>
+<p>Os conxuntos de datos, ou as <i>data frames</i>, son estruturas de datos bidimentionais que xunguen en si diferentes tipos de datos. Son como se fosen "follas de datos". </p>
+<p>Os datos dunha mesma columna son obrigatoriamente do mesmo tipo, isto é; ou cuantitativos ou categóricos, mais nunca ambos. A cada columna e a cada fila nunha data frame pódeselle asignar unha etiqueta. Logo, unha columna pódese obter cunha chamada usando <code>with()</code> ou a expresión <code>$</code>.</p>
+
+<p>Como nalgún exemplo visto anteriormente, <code>data.frame()</code> é o que nos permite crear conxuntos de datos.</p>
+
+<div class="chunk" id="unnamed-chunk-60"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">secuencias</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwc">SNP</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">7</span><span class="hl std">),</span> <span class="hl kwc">ac.nucleico</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;G&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T&quot;</span><span class="hl std">))</span>
+<span class="hl std">secuencias</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   SNP ac.nucleico
+## 1   2           G
+## 2   3           C
+## 3   7           T
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># $ permítenos obter unha variable</span>
+<span class="hl std">secuencias</span><span class="hl opt">$</span><span class="hl std">ac.nucleico</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] G C T
+## Levels: C G T
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">with</span><span class="hl std">(secuencias, SNP)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 2 3 7
+</pre></div>
+</div></div>
+
+
+<p>Os nomes das variables dunha data frame pódense obter ou cambiar a posteriori.</p>
+
+<div class="chunk" id="unnamed-chunk-61"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">r</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwc">x</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">y</span> <span class="hl std">=</span> <span class="hl num">4</span><span class="hl opt">:</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">z</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl opt">:</span><span class="hl num">8</span><span class="hl std">)</span>
+<span class="hl std">r</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   x y z
+## 1 2 4 5
+## 2 2 5 6
+## 3 2 4 7
+## 4 2 5 8
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">colnames</span><span class="hl std">(r)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;a&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;b&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;c&quot;</span><span class="hl std">)</span>
+<span class="hl std">r</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   a b c
+## 1 2 4 5
+## 2 2 5 6
+## 3 2 4 7
+## 4 2 5 8
+</pre></div>
+</div></div>
+
+
+<p>O indexado nas data frames pódese realizar de varios xeitos. Habitualmente realízase coas parellas dos índices de filas e columnas.</p>
+
+<div class="chunk" id="unnamed-chunk-62"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># segunda e terceira fila, primeira e segunda columna</span>
+<span class="hl std">r[</span><span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">2</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   a b
+## 2 2 5
+## 3 2 4
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">r[</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl num">TRUE</span><span class="hl std">),</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;a&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;b&quot;</span><span class="hl std">)]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   a b
+## 1 2 4
+## 2 2 5
+## 4 2 5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># se só precisamos unha columna</span>
+<span class="hl std">r</span><span class="hl opt">$</span><span class="hl std">b[</span><span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 5 4 5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">r[[</span><span class="hl str">&quot;b&quot;</span><span class="hl std">]][</span><span class="hl num">2</span><span class="hl opt">:</span><span class="hl num">4</span><span class="hl std">]</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 5 4 5
+</pre></div>
+</div></div>
+
+
+<p>Nos momentos en que precisemos obter un subconxunto dos datos, a función <code>subset()</code> será de axuda. <code>subset()</code> precisa de tres variables: a data frame da que extraer datos, un vector lóxico de condicións para as filas a incluír e o nome das columnas coas que nos quedamos.</p>
+
+<div class="chunk" id="unnamed-chunk-63"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># convertimos parte da lista nun conxunto de datos</span>
+<span class="hl std">presenza</span> <span class="hl kwb">&lt;-</span> <span class="hl std">list.sp</span><span class="hl opt">$</span><span class="hl std">presence</span>
+<span class="hl com"># asígnanselle nomes ás filas e columnas</span>
+<span class="hl kwd">colnames</span><span class="hl std">(presenza)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;sp1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;sp2&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;sp3&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;sp4&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;sp5&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;sp6&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">rownames</span><span class="hl std">(presenza)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;vigo&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;muros&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;muxia&quot;</span><span class="hl std">)</span>
+<span class="hl com"># invertimos os datos</span>
+<span class="hl std">presenza</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">t</span><span class="hl std">(presenza)</span>
+<span class="hl std">presenza</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">as.data.frame</span><span class="hl std">(presenza)</span>
+<span class="hl std">presenza</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##     vigo muros muxia
+## sp1    1     1     1
+## sp2    0     1     0
+## sp3    0     0     1
+## sp4    1     0     0
+## sp5    1     0     1
+## sp6    1     1     1
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">is.data.frame</span><span class="hl std">(presenza)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] TRUE
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># subset que especies presentes en Muros están en Vigo e Muxía</span>
+<span class="hl kwd">subset</span><span class="hl std">(presenza, muros</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span> <span class="hl opt">|</span> <span class="hl std">muxia, vigo)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##     vigo
+## sp1    1
+## sp2    0
+## sp3    0
+## sp5    1
+## sp6    1
+</pre></div>
+</div></div>
+
+
+<p><b>Tarefa</b>: .</p>
+
+<h2>1.5 Factores</h2>
+<p>Ao analizarmos datos, atoparanse de xeito habitual valores categóricos, como poden ser a cor de ollos ou a orde á que pertence unha especie. Un factor é unha variable especial para almacenar variables categóricas. Os factores son unha colección de elementos, e que poden ser mesmo ordenados, no que os diferentes valores do factor se poden chamar "niveis" (levels).</p>
+
+<p><code>factor()</code> é a función a empregarmos para definir un factor.</p>
+<div class="chunk" id="unnamed-chunk-64"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Poderiamos ter un vector de observacións, mais...</span>
+<span class="hl std">radiolaria</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Spumellaria&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Sticholonche&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Arthracanthida&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Arthracanthida&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Sticholonche&quot;</span><span class="hl std">)</span>
+<span class="hl com"># É mellor crear factores</span>
+<span class="hl std">radiolaria</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">factor</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Spumellaria&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Arthracanthida&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Sticholonche&quot;</span><span class="hl std">))</span>
+<span class="hl com"># tódalas obsevacións</span>
+<span class="hl std">radiolaria</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] Spumellaria    Arthracanthida Sticholonche  
+## Levels: Arthracanthida Spumellaria Sticholonche
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># os niveis das observacións</span>
+<span class="hl kwd">levels</span><span class="hl std">(radiolaria)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Arthracanthida" "Spumellaria"    "Sticholonche"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># o número de niveis</span>
+<span class="hl kwd">nlevels</span><span class="hl std">(radiolaria)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 3
+</pre></div>
+</div></div>
+
+
+<p>Pódense crear factores que poidamos analizar por orde, algo útil como neste exemplo de análise de frecuencia de especies:</p>
+<div class="chunk" id="unnamed-chunk-65"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">sp.reconto</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">factor</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Abundante&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Abundante&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Abundante&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Habitual&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Habitual&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Habitual&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Rara&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Moi rara&quot;</span><span class="hl std">),</span> <span class="hl kwc">levels</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Abundante&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Habitual&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Rara&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Moi rara&quot;</span><span class="hl std">),</span> <span class="hl kwc">order</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+
+<span class="hl std">sp.reconto</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] Abundante Abundante Abundante Habitual  Habitual  Habitual  Rara     
+## [8] Moi rara 
+## Levels: Abundante < Habitual < Rara < Moi rara
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">class</span><span class="hl std">(sp.reconto)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "ordered" "factor"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">unclass</span><span class="hl std">(sp.reconto)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 1 1 1 2 2 2 3 4
+## attr(,"levels")
+## [1] "Abundante" "Habitual"  "Rara"      "Moi rara"
+</pre></div>
+</div></div>
+
+
+<p>Cando se crea un conxunto de datos (<i>data frame</i>) cunha columna de datos de "texto", <b>R</b> asume por defecto que ese texto son datos categóricos e defíneos como factores.</p>
+
+<div class="chunk" id="unnamed-chunk-66"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">abundancia</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwc">abundancia</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">110</span><span class="hl std">,</span> <span class="hl num">92</span><span class="hl std">,</span> <span class="hl num">87</span><span class="hl std">,</span> <span class="hl num">86</span><span class="hl std">,</span> <span class="hl num">85</span><span class="hl std">,</span> <span class="hl num">85</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span>
+    <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">),</span> <span class="hl kwc">specie</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Aulacoctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Aulacoctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Aulacoctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">))</span>
+<span class="hl std">abundancia</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##    abundancia      specie
+## 1         110 Aulacoctena
+## 2          92 Aulacoctena
+## 3          87      Lampea
+## 4          86      Lampea
+## 5          85      Lampea
+## 6          85   Ceroctena
+## 7          12   Ceroctena
+## 8           3   Ceroctena
+## 9           2 Aulacoctena
+## 10          1      Lampea
+## 11          1      Lampea
+## 12          1   Ceroctena
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Tipo de clase da variable</span>
+<span class="hl kwd">class</span><span class="hl std">(abundancia</span><span class="hl opt">$</span><span class="hl std">specie)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "factor"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Levels lista os niveis do factor</span>
+<span class="hl std">abundancia</span><span class="hl opt">$</span><span class="hl std">specie</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] Aulacoctena Aulacoctena Lampea      Lampea      Lampea     
+##  [6] Ceroctena   Ceroctena   Ceroctena   Aulacoctena Lampea     
+## [11] Lampea      Ceroctena  
+## Levels: Aulacoctena Ceroctena Lampea
+</pre></div>
+</div></div>
+
+
+<p>En calquera momento podemos ver os niveis dunha variable do tipo factorial e mudar a asignación para calquera dato recollido nunha táboa de datos.</p>
+
+<div class="chunk" id="unnamed-chunk-67"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Ver os niveis dunha variable</span>
+<span class="hl kwd">levels</span><span class="hl std">(abundancia</span><span class="hl opt">$</span><span class="hl std">specie)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Aulacoctena" "Ceroctena"   "Lampea"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># Mudar o factor asignado a unha observación</span>
+<span class="hl std">abundancia</span><span class="hl opt">$</span><span class="hl std">specie[</span><span class="hl num">2</span><span class="hl std">]</span> <span class="hl kwb">&lt;-</span> <span class="hl str">&quot;Lampea&quot;</span>
+</pre></div>
+</div></div>
+
+
+<p>Igualmente, pódeselle aplicar a un obxecto xa creado previamente <code>factor()</code> e con iso definilo como factor.</p>
+<div class="chunk" id="unnamed-chunk-68"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">species</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Aulacoctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Aulacoctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Aulacoctena&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Ceroctena&quot;</span><span class="hl std">)</span>
+<span class="hl std">species</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">factor</span><span class="hl std">(species)</span>
+<span class="hl kwd">class</span><span class="hl std">(species)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "factor"
+</pre></div>
+</div></div>
+
+
+<p>Con <code>subset()</code> podemos seleccionar datos e mesmo retirar factores que non precisamos.</p>
+<div class="chunk" id="unnamed-chunk-69"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># un subconxunto cunha variable numérica</span>
+<span class="hl kwd">subset</span><span class="hl std">(abundancia, abundancia</span> <span class="hl opt">!=</span> <span class="hl num">1</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   abundancia      specie
+## 1        110 Aulacoctena
+## 2         92      Lampea
+## 3         87      Lampea
+## 4         86      Lampea
+## 5         85      Lampea
+## 6         85   Ceroctena
+## 7         12   Ceroctena
+## 8          3   Ceroctena
+## 9          2 Aulacoctena
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># subconxunto en base ó facor especie</span>
+<span class="hl std">abundancia2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">subset</span><span class="hl std">(abundancia, specie</span> <span class="hl opt">==</span> <span class="hl str">&quot;Ceroctena&quot;</span> <span class="hl opt">|</span> <span class="hl std">specie</span> <span class="hl opt">==</span> <span class="hl str">&quot;Lampea&quot;</span><span class="hl std">)</span>
+<span class="hl com"># mais que sigue tendo tres niveis</span>
+<span class="hl kwd">unique</span><span class="hl std">(abundancia2</span><span class="hl opt">$</span><span class="hl std">specie)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] Lampea    Ceroctena
+## Levels: Aulacoctena Ceroctena Lampea
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># retirada de niveis</span>
+<span class="hl std">abundancia2</span><span class="hl opt">$</span><span class="hl std">specie</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">droplevels</span><span class="hl std">(abundancia2</span><span class="hl opt">$</span><span class="hl std">specie)</span>
+<span class="hl kwd">levels</span><span class="hl std">(abundancia2</span><span class="hl opt">$</span><span class="hl std">specie)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "Ceroctena" "Lampea"
+</pre></div>
+</div></div>
+
+
+<p><b>Tarefa</b>: .</p>
+
+<h2>1.6 Funcións útiles</h2>
+<p>En moitos momentos precisamos de estudar a estrutura dun obxecto antes de aplicar ningunha operación sobre del. A súa estrutura, clase ou nome de variables son características que se precisan.</p>
+
+<div class="chunk" id="unnamed-chunk-70"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">i</span> <span class="hl kwb">&lt;-</span> <span class="hl num">3</span><span class="hl opt">:</span><span class="hl num">8</span>
+<span class="hl com"># longura ou número de elementos ou compoñentes</span>
+<span class="hl kwd">length</span><span class="hl std">(i)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 6
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># estrutura dun obxecto</span>
+<span class="hl kwd">str</span><span class="hl std">(i)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  int [1:6] 3 4 5 6 7 8
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># clase ou tipo de obxecto</span>
+<span class="hl kwd">class</span><span class="hl std">(i)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] "integer"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># nomes</span>
+<span class="hl kwd">names</span><span class="hl std">(i)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## NULL
+</pre></div>
+</div></div>
+
+
+<p>Saber que obxectos temos no espazo de traballo e eliminalos é outra tarefa habitual.</p>
+<div class="chunk" id="unnamed-chunk-71"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">ls</span><span class="hl std">()</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] "a"           "abundancia"  "abundancia2" "arrayN"      "comarcas"   
+##  [6] "d"           "g"           "i"           "im6"         "list.sp"    
+## [11] "m1"          "m2"          "m3"          "m4"          "m5"         
+## [16] "m6"          "matrizM"     "matrizN"     "p"           "presenza"   
+## [21] "q"           "r"           "radiolaria"  "secuencias"  "sp.reconto" 
+## [26] "species"     "u"           "v"           "w"           "x"          
+## [31] "y"           "z"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">objects</span><span class="hl std">()</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] "a"           "abundancia"  "abundancia2" "arrayN"      "comarcas"   
+##  [6] "d"           "g"           "i"           "im6"         "list.sp"    
+## [11] "m1"          "m2"          "m3"          "m4"          "m5"         
+## [16] "m6"          "matrizM"     "matrizN"     "p"           "presenza"   
+## [21] "q"           "r"           "radiolaria"  "secuencias"  "sp.reconto" 
+## [26] "species"     "u"           "v"           "w"           "x"          
+## [31] "y"           "z"
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># eliminamos a data frame de abundancia</span>
+<span class="hl kwd">rm</span><span class="hl std">(abundancia)</span>
+<span class="hl kwd">ls</span><span class="hl std">()</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] "a"           "abundancia2" "arrayN"      "comarcas"    "d"          
+##  [6] "g"           "i"           "im6"         "list.sp"     "m1"         
+## [11] "m2"          "m3"          "m4"          "m5"          "m6"         
+## [16] "matrizM"     "matrizN"     "p"           "presenza"    "q"          
+## [21] "r"           "radiolaria"  "secuencias"  "sp.reconto"  "species"    
+## [26] "u"           "v"           "w"           "x"           "y"          
+## [31] "z"
+</pre></div>
+</div></div>
+
+
+<h1>2. Xestión de datos</h1>
+<h2>Datos de librerías</h2>
+<p><b>R</b> trae a canda si máis de 100 conxuntos de datos. Ademais, moitas  ou case tódalas librerías inclúen a canda si conxunto de datos. Nese cato, para o seu uso, a función a empregar é <code>data()</code>.</p>
+<div class="chunk" id="unnamed-chunk-72"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># instalación e/ou carga dunha librería</span>
+<span class="hl kwa">if</span> <span class="hl std">(</span><span class="hl opt">!</span><span class="hl kwd">require</span><span class="hl std">(SPECIES)) {</span>
+    <span class="hl kwd">install.packages</span><span class="hl std">(</span><span class="hl str">&quot;SPECIES&quot;</span><span class="hl std">)</span>
+<span class="hl std">}</span>
+</pre></div>
+<div class="message"><pre class="knitr r">## Loading required package: SPECIES
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># chamada ós datos desa librería</span>
+<span class="hl kwd">data</span><span class="hl std">(butterfly)</span>
+<span class="hl com"># olléase o cabeceiro dos datos</span>
+<span class="hl kwd">head</span><span class="hl std">(butterfly)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   j n_j
+## 1 1 118
+## 2 2  74
+## 3 3  44
+## 4 4  24
+## 5 5  29
+## 6 6  22
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># e a estrutura dos datos</span>
+<span class="hl kwd">str</span><span class="hl std">(butterfly)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## 'data.frame':	25 obs. of  2 variables:
+##  $ j  : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ n_j: int  118 74 44 24 29 22 20 19 20 15 ...
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl std">bt</span> <span class="hl kwb">&lt;-</span> <span class="hl std">butterfly</span>
+<span class="hl com"># obtense un resumo estatístico</span>
+<span class="hl kwd">summary</span><span class="hl std">(bt)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##        j           n_j       
+##  Min.   : 1   Min.   :  3.0  
+##  1st Qu.: 7   1st Qu.:  9.0  
+##  Median :13   Median : 12.0  
+##  Mean   :13   Mean   : 24.8  
+##  3rd Qu.:19   3rd Qu.: 22.0  
+##  Max.   :25   Max.   :119.0
+</pre></div>
+</div></div>
+
+
+<p>Unha vez que teñamos os datos cargados, podemos traballar na súa análise.</p>
+<div class="chunk" id="unnamed-chunk-73"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">with</span><span class="hl std">(bt, j</span> <span class="hl opt">*</span> <span class="hl std">n_j)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1]  118  148  132   96  145  132  140  152  180  150  132  168   78  168
+## [15]   90  144  153  108  190  200  231  110   69   72 2975
+</pre></div>
+</div></div>
+
+
+<p>E rematado, eliminalos do espazo de traballo.</p>
+<div class="chunk" id="unnamed-chunk-74"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">remove</span><span class="hl std">(butterfly)</span>
+<span class="hl com"># outro xeito: rm(butterfly)</span>
+</pre></div>
+</div></div>
+
+
+<p>Cando queiramos eliminar tódolas variables e obxectos dun espazo de traballo, podemos recurrir a eliminar con <code>rm()</code> tódolos os obxectos que <code>ls()</code> nos indica que están en uso.</p>
+<div class="chunk" id="unnamed-chunk-75"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">rm</span><span class="hl std">(</span><span class="hl kwc">list</span> <span class="hl std">=</span> <span class="hl kwd">ls</span><span class="hl std">())</span>
+<span class="hl kwd">rm</span><span class="hl std">(</span><span class="hl kwc">list</span> <span class="hl std">=</span> <span class="hl kwd">ls</span><span class="hl std">(</span><span class="hl kwc">all</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">))</span>
+</pre></div>
+</div></div>
+
+
+<h3>Importación e exportación de datos</h3>
+<p>Hai multitude de formatos e estándares de documentos de texto para o almacenamento de datos. Algúns dos habituais e que podemos empregar en <b>R</b> son os datos delimitados por espazos (CSV),  os de eXtensible Markup Language (XML), os de JavaScript Object Notation (JSON), entre outros.</p>
+
+<p>A lectura dos ficheiros "csv" realízase con <code>read.csv()</code>.</p>
+
+<div class="chunk" id="unnamed-chunk-76"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># Importación de datos</span>
+<span class="hl std">distral</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">read.csv</span><span class="hl std">(</span><span class="hl str">&quot;~/public_html/introducion_a_R/data/distral.csv&quot;</span><span class="hl std">,</span> <span class="hl kwc">sep</span> <span class="hl std">=</span> <span class="hl str">&quot;,&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">head</span><span class="hl std">(distral)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##                           spp individuals           phylum nutrition
+## 1  Asterionellopsis_glacialis          93 Heterokontophyta Autotroph
+## 2            Asteromphalus_sp           5 Heterokontophyta Autotroph
+## 3        Cerataulina_pelagica          56 Heterokontophyta Autotroph
+## 4      Chaetoceros_curvisetus          74 Heterokontophyta Autotroph
+## 5         Chaetoceros_debilis         167 Heterokontophyta Autotroph
+## 6 Dactyliosolen_fragilissimus          56 Heterokontophyta Autotroph
+##      month
+## 1 February
+## 2 February
+## 3 February
+## 4 February
+## 5 February
+## 6 February
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">str</span><span class="hl std">(distral)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## 'data.frame':	78 obs. of  5 variables:
+##  $ spp        : Factor w/ 64 levels "Amphidinium_flagellans",..: 3 4 5 9 10 16 21 22 33 39 ...
+##  $ individuals: int  93 5 56 74 167 56 4529 93 2 1 ...
+##  $ phylum     : Factor w/ 5 levels "Ciliophora","Dinoflagellata",..: 5 5 5 5 5 5 5 5 5 5 ...
+##  $ nutrition  : Factor w/ 2 levels "Autotroph","Heterotroph": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ month      : Factor w/ 2 levels "February","July": 1 1 1 1 1 1 1 1 1 1 ...
+</pre></div>
+</div></div>
+
+
+<p><code>read.csv()</code> emprégase para ficheiros con decimais marcados co "." e columnas separadas por ",". <code>read.csv2()</code> para os que teñan decimais en "," e separadores con ";". <code>read.table</code> emprégase para a importación de datos directamente de formatos de <i>Excel</i> <small>(uso non aconsellado)</small>. <code>read.delim()</code> úsase cando as limitacións no ".csv" é por tabulación.</p>
+
+<p>Pódense exportar datos usando <code>write.csv(i, file="ficheiro.csv")</code>.</p>
+
+<h1>3. Gráficos </h1>
+<h2>Plot</h2>
+<p>O sistema de representación gráfica básico traballa primeiro definindo a área de debuxo e logo engadindo elementos nesta. A orde principal é <code>plot()</code> e que precisa das coordenadas <code>x</code> e <code>y</code>. Cando só definimos un vector, <code>plot()</code> interpreta eses valores como do eixo y e o x constrúeo cos índices deses valores.</p>
+
+<div class="chunk" id="unnamed-chunk-77"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">10</span>
+<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl num">1</span><span class="hl opt">/</span><span class="hl kwd">log2</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(x, y)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-77.png" title="plot of chunk unnamed-chunk-77" alt="plot of chunk unnamed-chunk-77" class="plot" /></div></div>
+
+
+<p>Os puntos de conexión dun gráfico defínense coas seguintes varíables de <code>type</code>:</p>
+<ul>
+<li>p: puntos</li>
+<li>l: liñas</li>
+<li>b: puntos conectados por liñas segmentadas</li>
+<li>c: conecta os segmentos de b</li>
+<li>o: puntos sobre liñas</li>
+<li>h: histograma</li>
+<li>s: escaleirado</li>
+<li>S: outro escaleirado </li>
+<li>n: nada</li>
+<li></li>
+</ul>
+
+<div class="chunk" id="unnamed-chunk-78"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">))</span>
+<span class="hl kwd">plot</span><span class="hl std">(x, y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(x, y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;h&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-78.png" title="plot of chunk unnamed-chunk-78" alt="plot of chunk unnamed-chunk-78" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">))</span>
+</pre></div>
+</div></div>
+
+
+<p><code>pch</code> define a forma do punto de cada gráfico e <code>lty</code> o tipo de liña. <code>mfrow() permite definir a distribución fila por fila de gráficos nun espazo rectangular.</code></p>
+
+<div class="chunk" id="unnamed-chunk-79"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># defínese cantos gráficos por fila</span>
+<span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">),</span> <span class="hl kwc">mar</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">),</span> <span class="hl kwc">cex</span> <span class="hl std">=</span> <span class="hl num">0.6</span><span class="hl std">)</span>
+<span class="hl com"># representación de dous gráficos</span>
+<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">25</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;o&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;grey&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl str">&quot;dashed&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;o&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl opt">-</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-79.png" title="plot of chunk unnamed-chunk-79" alt="plot of chunk unnamed-chunk-79" class="plot" /></div></div>
+
+
+<div class="chunk" id="unnamed-chunk-80"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">),</span> <span class="hl kwc">cex</span> <span class="hl std">=</span> <span class="hl num">0.8</span><span class="hl std">,</span> <span class="hl kwc">mar</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">))</span>
+<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">25</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;p&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;b&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(y,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;h&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-80.png" title="plot of chunk unnamed-chunk-80" alt="plot of chunk unnamed-chunk-80" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">))</span>
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-81"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># mellorado orde decrecente da abundancia so especies con máis de 10</span>
+<span class="hl com"># individuos</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">sort</span><span class="hl std">(distral[distral</span><span class="hl opt">$</span><span class="hl std">individuals</span> <span class="hl opt">&gt;</span> <span class="hl num">10</span><span class="hl std">, ]</span><span class="hl opt">$</span><span class="hl std">individuals,</span> <span class="hl kwc">decreasing</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">),</span>
+    <span class="hl kwc">pch</span> <span class="hl std">=</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;o&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;chartreuse3&quot;</span><span class="hl std">,</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Número de especies&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">ylab</span> <span class="hl std">=</span> <span class="hl str">&quot;Abundancia&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(distral</span><span class="hl opt">$</span><span class="hl std">individuals)),</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Rango de abundancias&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-81.png" title="plot of chunk unnamed-chunk-81" alt="plot of chunk unnamed-chunk-81" class="plot" /></div></div>
+
+
+<div class="chunk" id="unnamed-chunk-82"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># mellorado orde decrecente da abundancia so especies con máis de 10</span>
+<span class="hl com"># individuos</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">sort</span><span class="hl std">(distral[distral</span><span class="hl opt">$</span><span class="hl std">individuals</span> <span class="hl opt">&gt;</span> <span class="hl num">10</span><span class="hl std">, ]</span><span class="hl opt">$</span><span class="hl std">individuals,</span> <span class="hl kwc">decreasing</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">),</span>
+    <span class="hl kwc">pch</span> <span class="hl std">=</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;o&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;chartreuse3&quot;</span><span class="hl std">,</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Número de especies&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">ylab</span> <span class="hl std">=</span> <span class="hl str">&quot;Abundancia&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(distral</span><span class="hl opt">$</span><span class="hl std">individuals)),</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Rango de abundancias&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-82.png" title="plot of chunk unnamed-chunk-82" alt="plot of chunk unnamed-chunk-82" class="plot" /></div></div>
+
+
+<div class="chunk" id="unnamed-chunk-83"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># representación dos datos de febreiro</span>
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">sort</span><span class="hl std">(distral[distral</span><span class="hl opt">$</span><span class="hl std">month</span> <span class="hl opt">==</span> <span class="hl str">&quot;February&quot;</span><span class="hl std">, ]</span><span class="hl opt">$</span><span class="hl std">individuals,</span> <span class="hl kwc">decreasing</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">),</span>
+    <span class="hl kwc">pch</span> <span class="hl std">=</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;o&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;chartreuse3&quot;</span><span class="hl std">,</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Número de especies&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">ylab</span> <span class="hl std">=</span> <span class="hl str">&quot;Abundancia&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(distral</span><span class="hl opt">$</span><span class="hl std">individuals)),</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Rango de abundancias&quot;</span><span class="hl std">)</span>
+<span class="hl com"># superposición dos datos de xullo</span>
+<span class="hl kwd">lines</span><span class="hl std">(</span><span class="hl kwd">sort</span><span class="hl std">(distral[distral</span><span class="hl opt">$</span><span class="hl std">month</span> <span class="hl opt">==</span> <span class="hl str">&quot;July&quot;</span><span class="hl std">, ]</span><span class="hl opt">$</span><span class="hl std">individuals,</span> <span class="hl kwc">decreasing</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">),</span>
+    <span class="hl kwc">pch</span> <span class="hl std">=</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;o&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;firebrick3&quot;</span><span class="hl std">,</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Número de especies&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">ylab</span> <span class="hl std">=</span> <span class="hl str">&quot;Abundancia&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl kwd">max</span><span class="hl std">(distral</span><span class="hl opt">$</span><span class="hl std">individuals)),</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Rango de abundancias&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-83.png" title="plot of chunk unnamed-chunk-83" alt="plot of chunk unnamed-chunk-83" class="plot" /></div></div>
+
+
+<h2>Histogramas</h2>
+<p><code>hist()</code> xera histogramas. Nestas pódese controlar as barras e o seu ancho co argumento de "breaks", que define o número de barras neste.</p>
+
+<div class="chunk" id="unnamed-chunk-84"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">diato</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl kwc">n</span> <span class="hl std">=</span> <span class="hl num">1000</span><span class="hl std">,</span> <span class="hl kwc">m</span> <span class="hl std">=</span> <span class="hl num">24.2</span><span class="hl std">,</span> <span class="hl kwc">sd</span> <span class="hl std">=</span> <span class="hl num">2.2</span><span class="hl std">)</span>
+<span class="hl std">hist.i</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">hist</span><span class="hl std">(diato)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-84.png" title="plot of chunk unnamed-chunk-84" alt="plot of chunk unnamed-chunk-84" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl std">hist.i</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## $breaks
+##  [1] 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
+## 
+## $counts
+##  [1]   4  21  44  98 149 168 162 149 104  62  23  12   3   0   1
+## 
+## $density
+##  [1] 0.004 0.021 0.044 0.098 0.149 0.168 0.162 0.149 0.104 0.062 0.023
+## [12] 0.012 0.003 0.000 0.001
+## 
+## $mids
+##  [1] 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5 29.5 30.5 31.5
+## [15] 32.5
+## 
+## $xname
+## [1] "diato"
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,"class")
+## [1] "histogram"
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-85"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">hist</span><span class="hl std">(diato,</span> <span class="hl kwc">breaks</span> <span class="hl std">=</span> <span class="hl num">20</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Saltos=20&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-851.png" title="plot of chunk unnamed-chunk-85" alt="plot of chunk unnamed-chunk-85" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">hist</span><span class="hl std">(diato,</span> <span class="hl kwc">breaks</span> <span class="hl std">=</span> <span class="hl num">5</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Saltos=5&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-852.png" title="plot of chunk unnamed-chunk-85" alt="plot of chunk unnamed-chunk-85" class="plot" /></div></div>
+
+
+<p>A variable <code>frec</code> define histrogramas de frecuencia ou de densidade.</p>
+<div class="chunk" id="unnamed-chunk-86"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">hist</span><span class="hl std">(diato,</span> <span class="hl kwc">freq</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Gráfico de densidades&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-86.png" title="plot of chunk unnamed-chunk-86" alt="plot of chunk unnamed-chunk-86" class="plot" /></div></div>
+
+
+<p>No seguinte exemplo vemos un exemplo no que sobrepoñemos unha curva normal con <code>curve()</code> facendo uso de Z<code>add=TRUE</code>.</p>
+
+<div class="chunk" id="unnamed-chunk-87"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">hist</span><span class="hl std">(diato,</span> <span class="hl kwc">freq</span> <span class="hl std">=</span> <span class="hl num">FALSE</span><span class="hl std">,</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Rango de tamaños&quot;</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Distribución do rango de tamaños&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;chartreuse3&quot;</span><span class="hl std">,</span> <span class="hl kwc">xlim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">35</span><span class="hl std">),</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">0.2</span><span class="hl std">))</span>
+<span class="hl com"># dnorm dá a densidade dunha curva normal a desviación estándar e a media</span>
+<span class="hl com"># obtéñense dos datos sobre dos que superpoñemos a curva</span>
+<span class="hl kwd">curve</span><span class="hl std">(</span><span class="hl kwd">dnorm</span><span class="hl std">(x,</span> <span class="hl kwc">mean</span> <span class="hl std">=</span> <span class="hl kwd">mean</span><span class="hl std">(diato),</span> <span class="hl kwc">sd</span> <span class="hl std">=</span> <span class="hl kwd">sd</span><span class="hl std">(diato)),</span> <span class="hl kwc">add</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;blue4&quot;</span><span class="hl std">,</span>
+    <span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-87.png" title="plot of chunk unnamed-chunk-87" alt="plot of chunk unnamed-chunk-87" class="plot" /></div></div>
+
+
+<b>Diagramas de barras</b>
+<p>Os diagramas de barras créanse coa función <code>barplot()</code>. A función precisa que lle indiquemos un vector ou unha matríz, e o seu peso determinará o longo das barras no gráfico.</p>
+
+<div class="chunk" id="unnamed-chunk-88"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">pesca.baixura</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">matrix</span><span class="hl std">(</span><span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">752</span><span class="hl std">,</span> <span class="hl num">1438</span><span class="hl std">,</span> <span class="hl num">478</span><span class="hl std">,</span> <span class="hl num">252</span><span class="hl std">,</span> <span class="hl num">46</span><span class="hl std">,</span> <span class="hl num">26</span><span class="hl std">,</span> <span class="hl num">68</span><span class="hl std">,</span> <span class="hl num">31</span><span class="hl std">,</span> <span class="hl num">279</span><span class="hl std">,</span> <span class="hl num">366</span><span class="hl std">,</span> <span class="hl num">116</span><span class="hl std">,</span>
+    <span class="hl num">77</span><span class="hl std">),</span> <span class="hl kwc">nrow</span> <span class="hl std">=</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl kwc">byrow</span> <span class="hl std">= T)</span>
+<span class="hl kwd">colnames</span><span class="hl std">(pesca.baixura)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;0&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;1-150&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;151-300&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;&gt;300&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">rownames</span><span class="hl std">(pesca.baixura)</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Camariñas&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Burela&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;A Guarda&quot;</span><span class="hl std">)</span>
+
+<span class="hl kwd">barplot</span><span class="hl std">(pesca.baixura)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-881.png" title="plot of chunk unnamed-chunk-88" alt="plot of chunk unnamed-chunk-88" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">barplot</span><span class="hl std">(pesca.baixura,</span> <span class="hl kwc">beside</span> <span class="hl std">= T)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-882.png" title="plot of chunk unnamed-chunk-88" alt="plot of chunk unnamed-chunk-88" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">barplot</span><span class="hl std">(</span><span class="hl kwd">t</span><span class="hl std">(pesca.baixura),</span> <span class="hl kwc">beside</span> <span class="hl std">= T)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-883.png" title="plot of chunk unnamed-chunk-88" alt="plot of chunk unnamed-chunk-88" class="plot" /></div></div>
+
+
+<h2>Diagramas de caixas</h2>
+<p>Os diagramas de caixas ('boxplot') pódense crear para varibales individuais ou para grupos de variables. Nese último caso o código a empregarmos é <code>boxplot(i, data=), onde i é unha fórmula e data os datos que conteñen as variables de interese. </code>
+
+<div class="chunk" id="unnamed-chunk-89"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">boxplot</span><span class="hl std">(</span><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">50</span><span class="hl std">),</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">),</span> <span class="hl kwd">rlnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-89.png" title="plot of chunk unnamed-chunk-89" alt="plot of chunk unnamed-chunk-89" class="plot" /></div></div>
+
+
+<div class="chunk" id="unnamed-chunk-90"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl num">27</span><span class="hl std">)</span>
+<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">7</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">23</span><span class="hl std">,</span> <span class="hl num">44</span><span class="hl std">,</span> <span class="hl num">78</span><span class="hl std">)</span>
+<span class="hl std">z</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">17</span><span class="hl std">,</span> <span class="hl num">19</span><span class="hl std">,</span> <span class="hl num">26</span><span class="hl std">,</span> <span class="hl num">29</span><span class="hl std">,</span> <span class="hl num">31</span><span class="hl std">,</span> <span class="hl num">52</span><span class="hl std">,</span> <span class="hl num">80</span><span class="hl std">)</span>
+<span class="hl kwd">boxplot</span><span class="hl std">(x, y, z,</span> <span class="hl kwc">horizontal</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl kwc">names</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Mes 1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Mes 2&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Mes 3&quot;</span><span class="hl std">),</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;darkblue&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;gold1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;greenyellow&quot;</span><span class="hl std">),</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Produción&quot;</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Produción nas bateas&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-90.png" title="plot of chunk unnamed-chunk-90" alt="plot of chunk unnamed-chunk-90" class="plot" /></div></div>
+
+
+<h1>4. Análise estatística</h1>
+
+<h2>Distribucións estatísticas</h2>
+
+<div class="chunk" id="unnamed-chunk-91"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   [1] -1.42504 -2.34146 -0.05336 -0.48818 -1.57067 -0.07908 -0.92708
+##   [8] -1.28456 -0.82872 -1.55334  1.15381 -0.69656  0.74783 -0.37049
+##  [15]  0.08955 -0.84371  0.72820 -0.47382  0.68805 -1.24722  0.10157
+##  [22]  0.40729  1.16596 -2.52179  2.23859  0.84679  1.10940  1.40163
+##  [29]  1.49636  0.45294  0.77075 -0.07289 -2.07086 -0.24525  0.09525
+##  [36]  1.09145  1.64801  0.06074 -0.21539 -1.30633 -2.93317 -1.25232
+##  [43]  0.57999 -0.37633 -1.43148  0.58241 -0.49511  0.92047  1.49764
+##  [50] -0.13526 -0.78710  0.85479 -0.16926 -1.39009  0.19122 -0.11442
+##  [57] -0.90519  0.17832  1.75272 -0.28857 -0.55837  1.21291  0.16387
+##  [64] -1.08024 -0.02833  1.39056  0.84008 -0.22701 -0.76013 -1.63848
+##  [71] -0.16043  0.64228 -0.18888 -0.40651  0.77797 -0.74812 -0.20985
+##  [78]  1.04530  1.33415 -1.43040 -1.23182 -0.02402 -0.28991  0.26343
+##  [85]  1.42758 -0.11873 -0.89673  1.63973  2.18713  1.41514 -1.09672
+##  [92] -1.46304 -0.55170 -1.19090  1.76527 -1.43391  0.10170  1.87812
+##  [99]  0.41754  0.52375
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] 3.4400 2.8210 1.2767 2.9281 2.9017 0.5144 2.8579 2.1087 3.2968 1.8301
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">pnorm</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">qnorm</span><span class="hl std">(</span><span class="hl num">0.2</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] -0.8416
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-92"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># xérasense números aleatórios seguindo unha distribución normal</span>
+<span class="hl std">i</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">50</span><span class="hl std">)</span>
+<span class="hl com"># debúxase o histograma</span>
+<span class="hl kwd">hist</span><span class="hl std">(i,</span> <span class="hl kwc">prob</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl com"># cálculo da media da mostra</span>
+<span class="hl std">mu</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">mean</span><span class="hl std">(i)</span>
+<span class="hl com"># cálculo da desviación estándar</span>
+<span class="hl std">sigma</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sd</span><span class="hl std">(i)</span>
+
+<span class="hl std">z</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl opt">-</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwc">length</span> <span class="hl std">=</span> <span class="hl num">500</span><span class="hl std">)</span>
+<span class="hl std">w</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dnorm</span><span class="hl std">(z, mu, sigma)</span>
+<span class="hl kwd">lines</span><span class="hl std">(z, w)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-92.png" title="plot of chunk unnamed-chunk-92" alt="plot of chunk unnamed-chunk-92" class="plot" /></div></div>
+
+
+<h2>f distribution</h2>
+
+<div class="chunk" id="unnamed-chunk-93"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># f distribution df, pf, qf, rf == density, cumulative, quantiles and random</span>
+<span class="hl com"># probability</span>
+<span class="hl std">xaxis</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">0.1</span><span class="hl std">)</span>
+<span class="hl std">y1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">df</span><span class="hl std">(xaxis,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl std">y2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">df</span><span class="hl std">(xaxis,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">15</span><span class="hl std">)</span>
+<span class="hl std">y3</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">df</span><span class="hl std">(xaxis,</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">29</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(xaxis, y3,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Comparanza de distribucións F&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">points</span><span class="hl std">(xaxis, y2,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;red&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">points</span><span class="hl std">(xaxis, y1,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;blue&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-93.png" title="plot of chunk unnamed-chunk-93" alt="plot of chunk unnamed-chunk-93" class="plot" /></div></div>
+
+
+<h2>Análise de varianza de unha vía (ANOVA)</h2>
+<div class="chunk" id="unnamed-chunk-94"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com">### pag. 142 One way Analysis of variance Analysis of variance (ANOVA) compare</span>
+<span class="hl com">### three or more means simultaneously</span>
+
+<span class="hl com"># One way anova</span>
+<span class="hl std">mpg</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">34</span><span class="hl std">,</span> <span class="hl num">35</span><span class="hl std">,</span> <span class="hl num">34.3</span><span class="hl std">,</span> <span class="hl num">35.5</span><span class="hl std">,</span> <span class="hl num">35.8</span><span class="hl std">,</span> <span class="hl num">35.3</span><span class="hl std">,</span> <span class="hl num">36.5</span><span class="hl std">,</span> <span class="hl num">36.4</span><span class="hl std">,</span> <span class="hl num">37</span><span class="hl std">,</span> <span class="hl num">37.6</span><span class="hl std">,</span> <span class="hl num">33.3</span><span class="hl std">,</span> <span class="hl num">34</span><span class="hl std">,</span> <span class="hl num">34.7</span><span class="hl std">,</span>
+    <span class="hl num">33</span><span class="hl std">,</span> <span class="hl num">34.9</span><span class="hl std">)</span>
+<span class="hl std">brand</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;A&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;B&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">)</span>
+<span class="hl std">mileage</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwc">mpg</span> <span class="hl std">= mpg,</span> <span class="hl kwc">brand</span> <span class="hl std">= brand)</span>
+<span class="hl kwd">attach</span><span class="hl std">(mileage)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## The following objects are masked _by_ .GlobalEnv:
+## 
+##     brand, mpg
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">factor</span><span class="hl std">(brand)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] A A A A A B B B B B C C C C C
+## Levels: A B C
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">boxplot</span><span class="hl std">(mpg</span> <span class="hl opt">~</span> <span class="hl std">brand)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-94.png" title="plot of chunk unnamed-chunk-94" alt="plot of chunk unnamed-chunk-94" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl std">group</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">factor</span><span class="hl std">(brand)</span>
+<span class="hl std">results</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">aov</span><span class="hl std">(mpg</span> <span class="hl opt">~</span> <span class="hl std">group)</span>
+<span class="hl std">results</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## Call:
+##    aov(formula = mpg ~ group)
+## 
+## Terms:
+##                  group Residuals
+## Sum of Squares  17.049     8.028
+## Deg. of Freedom      2        12
+## 
+## Residual standard error: 0.8179
+## Estimated effects may be unbalanced
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">summary</span><span class="hl std">(</span><span class="hl kwd">aov</span><span class="hl std">(mpg</span> <span class="hl opt">~</span> <span class="hl std">group))</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##             Df Sum Sq Mean Sq F value Pr(>F)   
+## group        2  17.05    8.52    12.7 0.0011 **
+## Residuals   12   8.03    0.67                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</pre></div>
+</div></div>
+
+
+<!--
+<h2>4.1 Plantexamento de hipóteses básicas</h2>
+<h3>T de Student de unha e dúas mostras</h3>
+<h3>Test de Wilcoxon</h3>
+
+<h2>4.2 Táboas ANOVAs</h2>
+<!--
+<h2>4.3 Regresión lineal simple</h>
+
+
+
+
+<!--
+
+
+-->
+<h1>Anexo</h1>
+<h2>Recursos suxeridos:</h2>
+<p><ul>
+  <li><b>Páxinas web e blogs</b>:</li>
+    <ul>
+      <li><a href="http://tryr.codeschool.com/">Try-R</a>: un curso interactivo de introdución á linguaxe.</li>
+      <li><a href="http://www.statmethods.net/index.html">Quick-R, accessing the power of R </a>: un excelente recurso para ver R rapidamente.</li>
+      <li><a href="http://www.r-tutor.com/">R Tutor, An R Introduction to Statistics</a>: Libro en liña de R para a estatística</li>
+      <li><a href="http://www.ats.ucla.edu/stat/r/">Idre: Resources to help you learn and use R</a></li>
+      <li><a href="http://www.r-bloggers.com/">R-bloggers</a>: Novas de R dos blogues de case 452 persoas.</li>
+      <li><a href="http://www.programmingr.com/">Programming, Beginner to advanced resources for the R programming language </a>: Recursos para programación en R.</li>
+      <li><a href="http://rgm3.lab.nig.ac.jp/RGM/R_image_list?navi_idx=0">R Graphical Manual</a>: Colección de gráficos deseñados en R, con case 40 mil casos.</li>
+    </ul>
+  <li><b>Libros</b>:</li>
+      <ul>
+      <li><a href="http://shop.oreilly.com/product/0636920028352.do">Richar Cotton. Learning R: A Step-by-Step Function Guide to Data Analysis. O'Relley. 2013.</a>: Introdución a R.</li>
+      <li><a href="http://shop.oreilly.com/product/9780596801717.do">Joseph Adler.R in a Nutshell. A Desktop Quick Reference. O'Reilly Media. 2010.</a></li>
+      <li><a href="http://www.cookbook-r.com/">Cookbook for R</a>: solucionario de problemas comúns.</li>
+      <li><a href="http://shop.oreilly.com/product/9781593273842.do">The art of R programming</a>: Programación estatística avanzanda.</li>
+      <li><a href="http://www.r-project.org/doc/bib/R-books.html">Libros relacionados con R</a>: lista actualizada de tódalas publicacións de libros que aplican R.</li>
+    </ul>
+    <li><b>Axuda</b>:
+      <ul>
+      <li><a href="http://www.r-project.org/mail.html">Listas de correo</a></li>
+      <li><a href="http://stackoverflow.com/tags/r">Staroverflow</a>: sección deste <i>foro</i> para R. </li>
+      <li><a href="http://www.rseek.org">Rgeek</a>: un buscador para <i>geeks</i> de R ;)</li>
+      </ul>
+    </li>
+</ul></p>
+
+<h2>Funcións matematicas</h2>
+<p>
+</p>
+
+<footer>
+  <p>Licenza: CC-BY</p>
+  <p>Contacto: <a href="mailto:mbranco@uvigo.es">
+  mbranco@uvigo.es</a>.</p>
+</footer> 
+
+</body>
+</html>
