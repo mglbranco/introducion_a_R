@@ -89,13 +89,13 @@
     <li>Factores</li>
     <li>Obxectos en R</li>
  </ul>
- <li>3. Xestión de datos</li>
+ <li>2. Xestión de datos</li>
  <ul>
  <li>Datos de librerías</li>
  <li>Importación e exportación de datos</li>
  </ul>
- <li>4. Gráficos</li>
- <li>5. Análise estatística</li>
+ <li>3. Gráficos</li>
+ <li>4. Análise estatística</li>
  <li>Anexos</li>
  <ul>
   <li>Recursos suxeridos</li>
@@ -181,8 +181,8 @@
 <p>&nbsp;</p>
 <div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># créanse dous vectores w son tódolos número do 1 ó 12</span>
 <span class="hl std">w</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl opt">:</span><span class="hl num">20</span><span class="hl std">)</span>
-<span class="hl com"># y é un vector de 10 veces 2 e 10 veces 10</span>
-<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl kwd">rep</span><span class="hl std">(</span><span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">),</span> <span class="hl kwd">rep</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">))</span>
+<span class="hl com"># y é o logaritmo dun vector dunha secuencia de pi a 23*pi</span>
+<span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">log</span><span class="hl std">(pi</span><span class="hl opt">:</span><span class="hl num">23</span> <span class="hl opt">*</span> <span class="hl std">pi)</span>
 <span class="hl com"># fai un gráfico!</span>
 <span class="hl kwd">plot</span><span class="hl std">(w, y)</span>
 </pre></div>
@@ -196,7 +196,7 @@
 <span class="hl com"># marca 3 gráficos en horizontal, 1 liña en horizontal</span>
 <span class="hl kwd">par</span><span class="hl std">(</span><span class="hl kwc">mfrow</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">))</span>
 
-<span class="hl com"># debuxamos un boxplot, un histograma e unha función de densidade</span>
+<span class="hl com"># debuxamos un boxplot e un histograma</span>
 <span class="hl kwd">boxplot</span><span class="hl std">(a)</span>
 <span class="hl kwd">hist</span><span class="hl std">(a)</span>
 </pre></div>
@@ -260,8 +260,6 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 
 <p>A función <code>list.files()</code> permítenos ver todo o listado de ficheiros que hai dentro do cartafol de traballo que se lle especificou a <code>setwd()</code>. 
 
-<p><b>Tarefa</b>: Crea un cartafol de traballo e defíneo como tal. Crea dende RStudio un script en branco e dálle o nome que queiras. Descarga os datos cos que traballaremos e gárdaos nese cartafol. Unha vez teñas iso, obtén a listaxe de ficheiros que alí hai.</p>
-
 <h1>1. A contorna de R</h1>
 <h2>Sintaxe</h2>
 <h3>Expresións</h3>
@@ -301,7 +299,6 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </div></div>
 
 
-<p><b>Tarefa</b>: busca <code>"Arithmetic"</code>, <code>"sqrt"</code> e <code>"special"</code>, ollea as axudas e proba na consola algunhas das opcións desas funcións.</p>
 
 <h3>Asignación de variables</h3>
 <p>Unha varíable asígnase usando <b>"&lt;-"</b> ou <b>=</b>. Por motivos históricos, en R prefírese o uso de "&lt;-".</p>
@@ -823,7 +820,6 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </div></div>
 
 
-<p><b>Tarefa</b>: .</p>
 
 <h2>1.3 Matrices e arrays</h2>
 <p>As variables vectores son obxectos unidimensionais: só teñen unha longura e ningunha outra dimensión. En cambios, os <i>arrays</i> e as matrices son multidimensionais. Un array contén datos multidimensionais rectangulares, isto é, cada fila ou cada columna é da mesma longura cás outras. As matrices son un caso particular de arrays bidimensionais.</p> 
@@ -1085,7 +1081,6 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </div></div>
 
 
-<p><b>Tarefa</b>: .</p>
 
 <h2>1.4 Listas e <i>Data frames</i></h2>
 <p>Os vectores, as matrices e os arrays conteñen sempre elementos que son do mesmo tipo. Pola contra, as listas e das data frames son dous tipos de obxectos que permiten combinar diferentes tipos de datos nunha única variable.</p>
@@ -1347,7 +1342,6 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </div></div>
 
 
-<p><b>Tarefa</b>: .</p>
 
 <h2>1.5 Factores</h2>
 <p>Ao analizarmos datos, atoparanse de xeito habitual valores categóricos, como poden ser a cor de ollos ou a orde á que pertence unha especie. Un factor é unha variable especial para almacenar variables categóricas. Os factores son unha colección de elementos, e que poden ser mesmo ordenados, no que os diferentes valores do factor se poden chamar "niveis" (levels).</p>
@@ -1495,7 +1489,6 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </div></div>
 
 
-<p><b>Tarefa</b>: .</p>
 
 <h2>1.6 Funcións útiles</h2>
 <p>En moitos momentos precisamos de estudar a estrutura dun obxecto antes de aplicar ningunha operación sobre del. A súa estrutura, clase ou nome de variables son características que se precisan.</p>
@@ -1561,6 +1554,7 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 
 
 <h1>2. Xestión de datos</h1>
+
 <h2>Datos de librerías</h2>
 <p><b>R</b> trae a canda si máis de 100 conxuntos de datos. Ademais, moitas  ou case tódalas librerías inclúen a canda si conxunto de datos. Nese cato, para o seu uso, a función a empregar é <code>data()</code>.</p>
 <div class="chunk" id="unnamed-chunk-72"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># instalación e/ou carga dunha librería</span>
@@ -1771,16 +1765,18 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 <div class="source"><pre class="knitr r"><span class="hl std">hist.i</span>
 </pre></div>
 <div class="output"><pre class="knitr r">## $breaks
-## [1] 16 18 20 22 24 26 28 30 32
+##  [1] 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
 ## 
 ## $counts
-## [1]   3  28 126 320 313 170  33   7
+##  [1]   1   0   1   8  23  49  79 138 163 194 146 103  56  30   5   4
 ## 
 ## $density
-## [1] 0.0015 0.0140 0.0630 0.1600 0.1565 0.0850 0.0165 0.0035
+##  [1] 0.001 0.000 0.001 0.008 0.023 0.049 0.079 0.138 0.163 0.194 0.146
+## [12] 0.103 0.056 0.030 0.005 0.004
 ## 
 ## $mids
-## [1] 17 19 21 23 25 27 29 31
+##  [1] 15.5 16.5 17.5 18.5 19.5 20.5 21.5 22.5 23.5 24.5 25.5 26.5 27.5 28.5
+## [15] 29.5 30.5
 ## 
 ## $xname
 ## [1] "diato"
@@ -1838,21 +1834,189 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </div><div class="rimage default"><img src="figure/unnamed-chunk-883.png" title="plot of chunk unnamed-chunk-88" alt="plot of chunk unnamed-chunk-88" class="plot" /></div></div>
 
 
-<h2>Diagramas de caixas</h2>
-<p>Os diagramas de caixas ('boxplot') pódense crear para variables individuais ou para grupos de variables. Nese último caso o código a empregarmos é <code>boxplot(i, data=), onde i é unha fórmula e data os datos que conteñen as variables de interese. </code>
-
-<div class="chunk" id="unnamed-chunk-89"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">boxplot</span><span class="hl std">(</span><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">50</span><span class="hl std">),</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">),</span> <span class="hl kwd">rlnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">))</span>
+<p><code>abline()</code> engade liñas rectas, que podemos empregar para marcar lindes que nos interesen.</p>
+<div class="chunk" id="unnamed-chunk-89"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">choiva</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">227</span><span class="hl std">,</span> <span class="hl num">107.1</span><span class="hl std">,</span> <span class="hl num">205.7</span><span class="hl std">,</span> <span class="hl num">88.6</span><span class="hl std">,</span> <span class="hl num">93.8</span><span class="hl std">,</span> <span class="hl num">41.9</span><span class="hl std">,</span> <span class="hl num">13.3</span><span class="hl std">,</span> <span class="hl num">15.6</span><span class="hl std">,</span> <span class="hl num">39.7</span><span class="hl std">,</span> <span class="hl num">182.7</span><span class="hl std">,</span> <span class="hl num">83.7</span><span class="hl std">,</span>
+    <span class="hl num">127</span><span class="hl std">)</span>
+<span class="hl std">meses</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Xan&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Feb&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Mar&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Abr&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Mai&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Xuñ&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Xul&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Ago&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Sep&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Out&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Nov&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Dec&quot;</span><span class="hl std">)</span>
+<span class="hl com"># asignanselle nomes ao vector choiva</span>
+<span class="hl kwd">names</span><span class="hl std">(choiva)</span> <span class="hl kwb">&lt;-</span> <span class="hl std">meses</span>
+<span class="hl com"># gráfico de barras</span>
+<span class="hl kwd">barplot</span><span class="hl std">(choiva,</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Meses&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylab</span> <span class="hl std">=</span> <span class="hl str">&quot;Choiva&quot;</span><span class="hl std">,</span> <span class="hl kwc">ylim</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">230</span><span class="hl std">),</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;lightblue3&quot;</span><span class="hl std">)</span>
+<span class="hl com"># liñas horizontas especificadas pola secuencia</span>
+<span class="hl kwd">abline</span><span class="hl std">(</span><span class="hl kwc">h</span> <span class="hl std">=</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">220</span><span class="hl std">,</span> <span class="hl num">60</span><span class="hl std">),</span> <span class="hl kwc">lty</span> <span class="hl std">=</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl kwc">lwd</span> <span class="hl std">=</span> <span class="hl num">0.5</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;gray40&quot;</span><span class="hl std">)</span>
+<span class="hl com"># péchase a caixa do gráfico</span>
+<span class="hl kwd">box</span><span class="hl std">()</span>
 </pre></div>
 </div><div class="rimage default"><img src="figure/unnamed-chunk-89.png" title="plot of chunk unnamed-chunk-89" alt="plot of chunk unnamed-chunk-89" class="plot" /></div></div>
 
 
-<div class="chunk" id="unnamed-chunk-90"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl num">27</span><span class="hl std">)</span>
+<h2>Diagramas de caixas</h2>
+<p>Os diagramas de caixas ('boxplot') pódense crear para variables individuais ou para grupos de variables. Nese último caso o código a empregarmos é <code>boxplot(i, data=), onde i é unha fórmula e data os datos que conteñen as variables de interese. </code>
+
+<div class="chunk" id="unnamed-chunk-90"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">boxplot</span><span class="hl std">(</span><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">50</span><span class="hl std">),</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">),</span> <span class="hl kwd">rlnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-90.png" title="plot of chunk unnamed-chunk-90" alt="plot of chunk unnamed-chunk-90" class="plot" /></div></div>
+
+
+<div class="chunk" id="unnamed-chunk-91"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">x</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">2</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">9</span><span class="hl std">,</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl num">27</span><span class="hl std">)</span>
 <span class="hl std">y</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">5</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">7</span><span class="hl std">,</span> <span class="hl num">8</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">23</span><span class="hl std">,</span> <span class="hl num">44</span><span class="hl std">,</span> <span class="hl num">78</span><span class="hl std">)</span>
 <span class="hl std">z</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">12</span><span class="hl std">,</span> <span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">17</span><span class="hl std">,</span> <span class="hl num">19</span><span class="hl std">,</span> <span class="hl num">26</span><span class="hl std">,</span> <span class="hl num">29</span><span class="hl std">,</span> <span class="hl num">31</span><span class="hl std">,</span> <span class="hl num">52</span><span class="hl std">,</span> <span class="hl num">80</span><span class="hl std">)</span>
 <span class="hl kwd">boxplot</span><span class="hl std">(x, y, z,</span> <span class="hl kwc">horizontal</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">,</span> <span class="hl kwc">names</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Mes 1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Mes 2&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;Mes 3&quot;</span><span class="hl std">),</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;darkblue&quot;</span><span class="hl std">,</span>
     <span class="hl str">&quot;gold1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;greenyellow&quot;</span><span class="hl std">),</span> <span class="hl kwc">xlab</span> <span class="hl std">=</span> <span class="hl str">&quot;Produción&quot;</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Produción nas bateas&quot;</span><span class="hl std">)</span>
 </pre></div>
-</div><div class="rimage default"><img src="figure/unnamed-chunk-90.png" title="plot of chunk unnamed-chunk-90" alt="plot of chunk unnamed-chunk-90" class="plot" /></div></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-91.png" title="plot of chunk unnamed-chunk-91" alt="plot of chunk unnamed-chunk-91" class="plot" /></div></div>
+
+
+<h1>4. Análise estatística</h1>
+  
+<h2>Distribucións estatísticas</h2>
+<h3>Distribución normal</h3>
+<div class="chunk" id="unnamed-chunk-92"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">100</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##   [1]  0.28924  0.46015 -0.05977  1.08894 -0.49012  0.26763 -0.91091
+##   [8]  0.76719  0.03803 -0.68857  0.36130 -2.93917  1.06255 -0.71203
+##  [15] -1.46677  0.63900  1.20573  1.18925  0.71154 -0.51238 -0.10052
+##  [22]  0.48656 -1.45121  1.07780  0.49288 -0.35029 -0.10926 -0.72110
+##  [29]  0.62318 -1.06773  0.17506 -0.92410 -1.07622 -0.55756  0.85914
+##  [36] -0.88906  1.58637 -0.76910  0.40442  1.04980  0.64042 -0.13246
+##  [43] -1.72715 -0.42326 -0.32899  1.08758 -0.23250 -0.53787 -0.01108
+##  [50]  0.51757 -1.32363  0.98598  0.12253 -0.26443 -0.11251 -0.59345
+##  [57] -0.16833  0.38883  0.72757 -0.35209 -0.85049 -1.48249  1.16647
+##  [64]  1.64429 -2.84124  0.70237 -0.42436 -0.55020 -0.62185  1.19197
+##  [71]  0.44729 -1.05160  1.83865  1.91761  1.49955  0.15180  1.17751
+##  [78] -1.41904 -0.38291  0.60270 -0.50140 -0.52822  0.42585  0.35003
+##  [85]  1.14981 -1.06114  1.57019  0.46092 -0.29411 -1.67390 -0.23463
+##  [92]  0.59341  0.92395  0.42911 -0.11394 -0.43330  1.09727  1.10310
+##  [99] -0.64572  0.41450
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">1</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">##  [1] 2.827 3.335 3.504 2.447 4.170 2.812 1.755 2.015 2.283 3.162
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">pnorm</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] 0.5
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl kwd">qnorm</span><span class="hl std">(</span><span class="hl num">0.2</span><span class="hl std">)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## [1] -0.8416
+</pre></div>
+</div></div>
+
+  
+<div class="chunk" id="unnamed-chunk-93"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># xérasense números aleatórios seguindo unha distribución normal</span>
+<span class="hl std">i</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">50</span><span class="hl std">)</span>
+<span class="hl com"># debúxase o histograma</span>
+<span class="hl kwd">hist</span><span class="hl std">(i,</span> <span class="hl kwc">prob</span> <span class="hl std">=</span> <span class="hl num">TRUE</span><span class="hl std">)</span>
+<span class="hl com"># cálculo da media da mostra</span>
+<span class="hl std">mu</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">mean</span><span class="hl std">(i)</span>
+<span class="hl com"># cálculo da desviación estándar</span>
+<span class="hl std">sigma</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">sd</span><span class="hl std">(i)</span>
+
+<span class="hl std">z</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl opt">-</span><span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl kwc">length</span> <span class="hl std">=</span> <span class="hl num">500</span><span class="hl std">)</span>
+<span class="hl std">w</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">dnorm</span><span class="hl std">(z, mu, sigma)</span>
+<span class="hl kwd">lines</span><span class="hl std">(z, w)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-93.png" title="plot of chunk unnamed-chunk-93" alt="plot of chunk unnamed-chunk-93" class="plot" /></div></div>
+
+  
+<h2>Distribution <b><i>f</i></b></h2>
+<div class="chunk" id="unnamed-chunk-94"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># f distribution df, pf, qf, rf == density, cumulative, quantiles and random</span>
+<span class="hl com"># probability</span>
+<span class="hl std">xaxis</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">seq</span><span class="hl std">(</span><span class="hl num">0</span><span class="hl std">,</span> <span class="hl num">6</span><span class="hl std">,</span> <span class="hl num">0.1</span><span class="hl std">)</span>
+<span class="hl std">y1</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">df</span><span class="hl std">(xaxis,</span> <span class="hl num">3</span><span class="hl std">,</span> <span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl std">y2</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">df</span><span class="hl std">(xaxis,</span> <span class="hl num">4</span><span class="hl std">,</span> <span class="hl num">15</span><span class="hl std">)</span>
+<span class="hl std">y3</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">df</span><span class="hl std">(xaxis,</span> <span class="hl num">10</span><span class="hl std">,</span> <span class="hl num">29</span><span class="hl std">)</span>
+<span class="hl kwd">plot</span><span class="hl std">(xaxis, y3,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Comparanza de distribucións F&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">points</span><span class="hl std">(xaxis, y2,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;red&quot;</span><span class="hl std">)</span>
+<span class="hl kwd">points</span><span class="hl std">(xaxis, y1,</span> <span class="hl kwc">type</span> <span class="hl std">=</span> <span class="hl str">&quot;l&quot;</span><span class="hl std">,</span> <span class="hl kwc">col</span> <span class="hl std">=</span> <span class="hl str">&quot;blue&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-94.png" title="plot of chunk unnamed-chunk-94" alt="plot of chunk unnamed-chunk-94" class="plot" /></div></div>
+
+
+<h2>t de Student</h2>
+<p>Con t-Student podemos comparar se (H0) as medias de dous conxuntos de datos son iguais ou (H1) diferentes. A hipótese nula non se rexeita cando o valor <i>p</i> sexa maior cao nivel de significancia e H0 rexéitase cando o valor<i>p</i> sexa menor que o nivel de significancia.</p>
+
+<div class="chunk" id="unnamed-chunk-95"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># http://statistics.berkeley.edu/computing/r-t-tests</span>
+<span class="hl std">x</span> <span class="hl kwb">=</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl std">y</span> <span class="hl kwb">=</span> <span class="hl kwd">rnorm</span><span class="hl std">(</span><span class="hl num">10</span><span class="hl std">)</span>
+<span class="hl kwd">t.test</span><span class="hl std">(x, y)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## 
+## 	Welch Two Sample t-test
+## 
+## data:  x and y
+## t = 1.258, df = 16.94, p-value = 0.2253
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.3124  1.2354
+## sample estimates:
+## mean of x mean of y 
+##    0.1918   -0.2697
+</pre></div>
+</div></div>
+
+
+<div class="chunk" id="unnamed-chunk-96"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl std">heterotrofos</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">17</span><span class="hl std">,</span> <span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">23</span><span class="hl std">,</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl num">20</span><span class="hl std">,</span> <span class="hl num">18</span><span class="hl std">,</span> <span class="hl num">24</span><span class="hl std">,</span> <span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">22</span><span class="hl std">)</span>
+<span class="hl std">autotrofos</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">15</span><span class="hl std">,</span> <span class="hl num">22</span><span class="hl std">,</span> <span class="hl num">21</span><span class="hl std">,</span> <span class="hl num">17</span><span class="hl std">,</span> <span class="hl num">14</span><span class="hl std">,</span> <span class="hl num">13</span><span class="hl std">,</span> <span class="hl num">16</span><span class="hl std">,</span> <span class="hl num">21</span><span class="hl std">)</span>
+
+<span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">density</span><span class="hl std">(heterotrofos))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-961.png" title="plot of chunk unnamed-chunk-96" alt="plot of chunk unnamed-chunk-96" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">plot</span><span class="hl std">(</span><span class="hl kwd">density</span><span class="hl std">(autotrofos))</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-962.png" title="plot of chunk unnamed-chunk-96" alt="plot of chunk unnamed-chunk-96" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">boxplot</span><span class="hl std">(heterotrofos, autotrofos,</span> <span class="hl kwc">ylab</span> <span class="hl std">=</span> <span class="hl str">&quot;Rango de tamaños (microM)&quot;</span><span class="hl std">,</span> <span class="hl kwc">names</span> <span class="hl std">=</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;Heterótrofos&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;Autótrofos&quot;</span><span class="hl std">),</span> <span class="hl kwc">main</span> <span class="hl std">=</span> <span class="hl str">&quot;Tamaños en función do tipo \n de nutrición&quot;</span><span class="hl std">)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-963.png" title="plot of chunk unnamed-chunk-96" alt="plot of chunk unnamed-chunk-96" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl kwd">t.test</span><span class="hl std">(x, y)</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## 
+## 	Welch Two Sample t-test
+## 
+## data:  x and y
+## t = 1.258, df = 16.94, p-value = 0.2253
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.3124  1.2354
+## sample estimates:
+## mean of x mean of y 
+##    0.1918   -0.2697
+</pre></div>
+</div></div>
+
+
+
+<h2>Análise de varianza de unha vía, ANOVA</h2>
+<div class="chunk" id="unnamed-chunk-97"><div class="rcode"><div class="source"><pre class="knitr r"><span class="hl com"># ANOVA</span>
+<span class="hl std">especie</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl num">23.3</span><span class="hl std">,</span> <span class="hl num">24</span><span class="hl std">,</span> <span class="hl num">24.7</span><span class="hl std">,</span> <span class="hl num">23</span><span class="hl std">,</span> <span class="hl num">24.9</span><span class="hl std">,</span> <span class="hl num">24</span><span class="hl std">,</span> <span class="hl num">25</span><span class="hl std">,</span> <span class="hl num">24.3</span><span class="hl std">,</span> <span class="hl num">25.5</span><span class="hl std">,</span> <span class="hl num">25.8</span><span class="hl std">,</span> <span class="hl num">25.3</span><span class="hl std">,</span> <span class="hl num">26.5</span><span class="hl std">,</span>
+    <span class="hl num">26.4</span><span class="hl std">,</span> <span class="hl num">27</span><span class="hl std">,</span> <span class="hl num">27.6</span><span class="hl std">)</span>
+<span class="hl std">tratamento</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">c</span><span class="hl std">(</span><span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;C&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T1&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T2&quot;</span><span class="hl std">,</span>
+    <span class="hl str">&quot;T2&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T2&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T2&quot;</span><span class="hl std">,</span> <span class="hl str">&quot;T2&quot;</span><span class="hl std">)</span>
+<span class="hl std">ensaio</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">data.frame</span><span class="hl std">(</span><span class="hl kwc">especie</span> <span class="hl std">= especie,</span> <span class="hl kwc">tratamento</span> <span class="hl std">= tratamento)</span>
+<span class="hl kwd">boxplot</span><span class="hl std">(especie</span> <span class="hl opt">~</span> <span class="hl std">tratamento)</span>
+</pre></div>
+</div><div class="rimage default"><img src="figure/unnamed-chunk-97.png" title="plot of chunk unnamed-chunk-97" alt="plot of chunk unnamed-chunk-97" class="plot" /></div><div class="rcode">
+<div class="source"><pre class="knitr r"><span class="hl std">grupo</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">factor</span><span class="hl std">(tratamento)</span>
+<span class="hl std">resultados</span> <span class="hl kwb">&lt;-</span> <span class="hl kwd">aov</span><span class="hl std">(especie</span> <span class="hl opt">~</span> <span class="hl std">grupo)</span>
+<span class="hl std">resultados</span>
+</pre></div>
+<div class="output"><pre class="knitr r">## Call:
+##    aov(formula = especie ~ grupo)
+## 
+## Terms:
+##                  grupo Residuals
+## Sum of Squares  17.049     8.028
+## Deg. of Freedom      2        12
+## 
+## Residual standard error: 0.8179
+## Estimated effects may be unbalanced
+</pre></div>
+<div class="source"><pre class="knitr r"><span class="hl com"># summary(aov(tratamento ~ grupo))</span>
+</pre></div>
+</div></div>
 
 
 <h1>Anexo</h1>
@@ -1890,7 +2054,7 @@ Sempre que queiramos atopar unha solución a un problema, ou ver exemplos, podem
 </p>
 
 <footer>
-  <p>Licenza: CC-BY</p>
+  <p>Licenza: GPLv3</p>
   <p>Contacto: <a href="mailto:mbranco@uvigo.es">
   mbranco@uvigo.es</a>.</p>
 </footer> 
