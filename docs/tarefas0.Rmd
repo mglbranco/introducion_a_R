@@ -1,0 +1,144 @@
+Introdución a R <sup>(para a estatística)</sup>
+========================================================
+Tarefas
+========================================================
+
+Módulo 0
+--------------------------------------------------------
+
+**Tarefa 1.**: Crea un cartafol de traballo e defíneo como tal. Crea dende RStudio un script en branco e dálle o nome que queiras. 
+
+Descarga os datos cos que traballaremos:
+* [distral](https://raw.github.com/mglbranco/introducion_a_R/gh-pages/data/distral.csv)
+* [nutrients](https://github.com/mglbranco/introducion_a_R/blob/gh-pages/data/nutrients.csv)
+
+Gárdaos nese cartafol. 
+
+Obtén a listaxe de ficheiros que alí hai.
+
+**Tarefa 2.**: Instala o paquete _SPECIES_. Carga os datos _microbial_ e _insects_ e mira que tipo de datos son.
+
+**Tarefa 3**: Executa demo(graphics) e demo(image)
+
+**Tarefa 4**: Busca como se calcula un quantil e a covarianza
+
+Módulo 1
+--------------------------------------------------------
+
+**Tarefa 1.**: Ó vector c(1,1,NA,2,1,1,NA), asínalle 0 ós NA.
+
+**Tarefa 2.**: Crea a secuencia: 1, 3, 5
+
+**Tarefa 3.**: Crea os seguintes vectores: 
+* 2, 2, 2, 2, 2
+* pi, pi, pi, 3, 3
+* 2.000000 3.141593 2.000000 3.141593 2.000000 3.141593
+
+**Tarefa 4.**: Nun saída de campo, os botánicos recontaron tres especies de fieitos en diferentes parcelas e recolleron os seguintes datos:
+- Osmunda regalis: 1, 0, 0, 2, 3, 0, 1
+- Pteridium aquilinum: 20, 21, 32, 56, 11, 18, 17
+- Polypodium vulgare: 13, 11, 7, 5, 15, 7, 2
+
+* Crea un vector coas abundancias de cada especie. Cal é a lonxitude deses vectores?. Cal é o rango de valores de abundancia para cada especie?
+
+* Ordena os vectores das especies de fieitos, cal é o fieito co punto de maior abudancia?.
+
+* Calcula as medias e di cal é o fieito con menor abundancia media?. 
+
+* Para a terceira parcela, cal é a media e a desviación típica da abundancia das tres especies?. 
+
+* Cal é a diferencia de abundancia de cada parcela paras as especies Pteridium e Polypodium?
+
+* Cal é a diferencia de abundancia da primeira coa quinta parcela de Pteridium?
+
+* Cal é a porcentaxe de individuos de Pteridium nas cinco primeiras parcelas?
+
+* Cantas parcelas de Polypodium tiñan máis de 2 individuos e menos de 10?
+
+* Crea unha 'data frame' con estes datos e repite as últimas catro preguntas.
+
+**Tarefa 5.**: Quérese que comparados dous elementos, se produza o seguinte resultado: FALSE FALSE TRUE . Como o farías?
+
+**Tarefa 6.** Sendo *fib* un vector c(0, 2, 2, 4, 6, 7, 13, 15, 21), 
+
+* Constrúe un vector co cuarto, quinto e séptimo elemento de _fib_
+
+* Ignora o primeiro elemento de _fib_
+
+* Que elementos de fib son menores de 11?
+
+* Que elementos son pares?. Cantos son e canto suman?
+
+**Tarefa 7.**: Sendo *fig* un vector c(4, 10, 12, 15, 12, 14, 16, 13, 19)
+
+* Que elementos de fig son maiores cá mediana de fig? 
+
+* Que elementos de fig son maiores e menores cao 5%?
+
+* Que elementos exceden +- 2 desviacións estándar da media?
+
+**Tarefa 8**: Crea unha un conxunto de datos coas seguintes variables:
+
+* longo: 20, 22, 25, 26, 25, 27, 21, 27, 28
+* velocidade: 11, 12, 15, 13, 12, 11, 18, 11, 17
+* consumo: 33, 32, 36, 33, 37, 38, 41, 21, 37
+
+* Asígnalle nomes ás filas
+
+* Mostra só o longo e o consumo deses datos
+
+* Obtén os datos da segunda á quinta fila dos datos. Obtén os datos da primeira e última fila.
+
+* Obten o valor do longo para a sexta mostra. Muda o seu valor por 28.
+
+**Tarefa 9**: Crea as matrices x= [3 2 / -1 1] e y = [1 4 0 / 0 1 -1]. Calcula:
+
+* 3*x
+* x*x
+* x%*%x
+* x%*%y
+* t(y)
+* solve(x)
+
+
+Módulo 2
+--------------------------------------------------------
+**Tarefa 1.**: Fai un 'attach' dos datos "trees". Calcula a media do Volume revirte o 'attach'.
+
+**Tarefa 3.**: Xa importados os datos de *distral* e de *nutrients*, como é o cabeceiro de cada ficheiro? Que tipo de variables temos en cada un?.
+
+Módulo 3
+--------------------------------------------------------
+
+**Tarefa 1.**: Accede a Meteogalicia, vai a "Acceso a datos" e ecolle unha estación metereolóxica calquera. Escolle unha variable como a "Temperatura media" e obten os promedios mensuais para o ano 2013. Importa como prefiras eses datos e represéntaos graficamente.
+
+**Tarefa 2.**: Dos datos _distral_, selecciona só os Dinoflaxelados e representa o seu rango de abundancia.
+
+**Tarefa 3.**: Con _distral_, representa do modo máis axeitado dos grupos taxonómicos (phylum) para cada mes. Fai o mesmo para o modo de nutrición.
+
+**Tarefa 4.**: Usa boxplot para representar a distribución de individuos para Jullo nos datos de _distral_.
+
+**Tarefa 5.**: Un gráfico habitual en oceanografía, e a representación de temperatura fronte a salinidade obtidos afundindo unha máquina nun mesmo punto. Cos datos de _nutrients_, representa isto sobrepoñendo a estación número 15 coa 12.
+
+Módulo 4
+--------------------------------------------------------
+**Tarefa 4.1**: Calcula a media, a mediana e a desviación estandar de 1, 2.5, 3, 3.1, 4, 4.5, 5
+
+**Tarefa 4.2**: Cal é correlación e a covarianza de i e z?, se:
+* i: 1, 1, 1, 2, 2, 36, 71, 80
+* z: log(i + 1)
+
+**Tarefa 4.3**: Crea dúas distribucións normais,
+* unha con media 100 e desviación típica 1
+* outra con media 160 e desviación típica 2
+* represéntaas graficamente
+
+
+**Tarefa 4.4**: Nos datos _nutrients_, existen diferenzas nas concentracións de Silicato na estación 12 e 15?
+
+
+**Tarefa 4.5**: Existe diferenza na variable _var_ segundo os factores _R1_, _R2_, _R3_?
+```{r}
+var <- c(23.3, 24, 24.7, 23, 24.9, 24, 25, 24.3, 25.5, 25.8, 25.3, 26.5, 26.4, 27, 27.6)
+trat <- c("R1","R1","R1","R1","R1","R2","R2","R2","R2","R2","R3","R3","R3","R3","R3")
+```
